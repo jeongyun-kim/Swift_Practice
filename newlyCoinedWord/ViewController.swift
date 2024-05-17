@@ -102,6 +102,7 @@ class ViewController: UIViewController {
             text = newlyKeywordsDict[searchKeyword]!
         }
         searchResultLabel.text = text
+        getRandomSearchKeywords()
     }
     
     @IBAction func searchBtnTapped(_ sender: UIButton) {
