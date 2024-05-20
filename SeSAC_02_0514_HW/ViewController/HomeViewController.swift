@@ -18,11 +18,12 @@ class HomeViewController: UIViewController {
     @IBOutlet var thumnailsImageView: [UIImageView]!
     @IBOutlet var nowHotContentsThumnailsStackView: UIStackView!
     
-    let movies: [String] = ["명량", "극한직업", "노량", "더퍼스트슬램덩크", "도둑들", "밀수", "베테랑", "서울의봄", "부산행", "신과함께인과연", "신과함께죄와벌", "아바타", "아바타물의길", "알라딘", "암살", "어벤져스엔드게임", "오펜하이머", "육사오", "콘크리트유토피아", "태극기휘날리며", "택시운전사", "해운대"]
+    let movies = Movie.movies
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        getRandomThumbnailImage()
     }
     
     func setupUI() {
@@ -35,8 +36,9 @@ class HomeViewController: UIViewController {
         playView.layer.cornerRadius = 6
         playBtn.setTitle("", for: .normal)
         playBtn.layer.cornerRadius = 6
-        zzimBtn.setAttributedTitle(NSAttributedString(string: " 내가 찜한 리스트", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15)]), for: .normal)
+        zzimBtn.setAttributedTitle(NSAttributedString(string: "내가 찜한 리스트", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15)]), for: .normal)
         zzimBtn.setImage(UIImage(systemName: "plus"), for: .normal)
+        zzimBtn.configuration?.imagePadding = 3
         zzimBtn.backgroundColor = .darkGray
         zzimBtn.tintColor = .white
         zzimBtn.layer.cornerRadius = 6
@@ -50,7 +52,6 @@ class HomeViewController: UIViewController {
         for i in (0..<4) {
             setupTumbnailImageView(imageView: thumnailsImageView[i])
         }
-        getRandomThumbnailImage()
     }
     
     func setupTumbnailImageView(imageView: UIImageView) {
@@ -61,7 +62,7 @@ class HomeViewController: UIViewController {
     func getRandomThumbnailImage() {
         var randomMovies: [String] = []
         while (randomMovies.count < 4) {
-            let randomMovie = movies.randomElement()!
+            let randomMovie = movies.randomElement()!.title
             if !randomMovies.contains(randomMovie) {
                 randomMovies.append(randomMovie)
             }
@@ -71,7 +72,7 @@ class HomeViewController: UIViewController {
         }
     }
 
-    @IBAction func playBtnTapped(_ sender: Any) {
+    @IBAction func playBtnTapped(_ sender: UIButton) {
         getRandomThumbnailImage()
     }
 }
