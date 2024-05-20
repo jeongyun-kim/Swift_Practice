@@ -15,20 +15,13 @@ class ViewController: UIViewController {
     @IBOutlet var searchBtn: UIButton!
     @IBOutlet var searchStackView: UIStackView!
     
-    // 신조어 
-    let newlyKeywordsDict: [String: String] = [
-        "중꺽마": "중요한 것은 꺾이지 않는 마음!🔥",
-        "디토합니다": "'나도 그래요', '동감입니다' 라는 의미",
-        "가나디": "강아지를 귀여운 방식으로 표현",
-        "캘박": "캘린더에 박제",
-        "최최차차": "최애는 최애고 차은우는 차은우",
-        "당모치": "당연히 모든 치킨은 옳다",
-        "스불재": "스스로 불러온 재앙"
-    ]
+    // 신조어
+    let newlyKeywords = Word.examples
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        getRandomSearchKeywords()
     }
     
     func setupUI() {
@@ -50,9 +43,9 @@ class ViewController: UIViewController {
             btn.layer.cornerRadius = 10
             btn.tintColor = .black
             btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+            btn.tag = i
             btn.contentEdgeInsets = .init(top: 7, left: 7, bottom: 7, right: 7)
         }
-        getRandomSearchKeywords()
     
         searchResultImageView.contentMode = .scaleAspectFill
         
@@ -61,72 +54,56 @@ class ViewController: UIViewController {
         searchResultLabel.numberOfLines = 0
     }
     
-    // 뷰 눌러서 키보드 내리기
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-    }
-    
     // 검색어 랜덤으로 가져와 보여주기
     func getRandomSearchKeywords() {
         var randomKeywords: [String] = []
         while (randomKeywords.count < 4) {
-            guard let randomKeyword = Array(newlyKeywordsDict.keys).randomElement() else { return }
-            if !randomKeywords.contains(randomKeyword) {
-                randomKeywords.append(randomKeyword)
+            guard let randomKeywordData = newlyKeywords.randomElement() else { return }
+            if randomKeywordData.word != searchBarTextField.text ?? "" && !randomKeywords.contains(randomKeywordData
+                .word) {
+                randomKeywords.append(randomKeywordData.word)
             } else {
                 continue
             }
         }
+        // 랜덤키워드 버튼에 세팅
         for i in (0..<searchKeywordsBtnCollection.count) {
             searchKeywordsBtnCollection[i].setTitle(randomKeywords[i], for: .normal)
         }
-    }
-    
-    // 키워드 버튼 눌렀을 때, 해당 키워드 서치바에 보여주기
-    func setSearchKeyword(idx: Int) {
-        guard let searchKeyword = searchKeywordsBtnCollection[idx].titleLabel?.text else { return }
-        searchBarTextField.text = searchKeyword
     }
     
     // 검색
     // 검색어가 없을 때 / 검색결과가 없을 때 / 검색결과 출력
     func search() {
         guard let searchKeyword = searchBarTextField.text else { return }
+        let searchedDatas = newlyKeywords.filter{ $0.word == searchKeyword }
         var text: String
         
-        if searchKeyword.isEmpty {
+        if searchKeyword.isEmpty { // 검색어 없을 때
             text = "검색어를 입력해주세요"
-        } else if !Array(newlyKeywordsDict.keys).contains(searchKeyword) {
+        } else if searchedDatas.isEmpty { // 검색결과 없을 때
             text = "검색결과가 없습니다"
-        } else {
-            text = newlyKeywordsDict[searchKeyword]!
+        } else { // 검색결과 있을 때
+            text = searchedDatas.first!.desc
         }
         searchResultLabel.text = text
         getRandomSearchKeywords()
     }
     
-    @IBAction func searchBtnTapped(_ sender: UIButton) {
+    // 키워드 버튼 눌렀을 때, 해당 키워드 서치바에 보여주기
+    @IBAction func keywordBtnTapped(_ sender: UIButton) {
+        searchBarTextField.text = sender.currentTitle
+    }
+    
+    // 검색버튼 또는 Return 버튼 눌렀을 때 검색하고 키보드 내리기
+    @IBAction func searchBtnTappedOrKeyboardReturn(_ sender: Any) {
         search()
+        view.endEditing(true)
     }
     
-    @IBAction func keyboardReturnKeyTapped(_ sender: UITextField) {
-        search()
-    }
-    
-    @IBAction func searchKeywordBtn1Tapped(_ sender: UIButton) {
-            setSearchKeyword(idx: 0)
-    }
-    
-    @IBAction func searchKeywordBtn2Tapped(_ sender: UIButton) {
-        setSearchKeyword(idx: 1)
-    }
-    
-    @IBAction func searchKeywordBtn3Tapped(_ sender: UIButton) {
-        setSearchKeyword(idx: 2)
-    }
-    
-    @IBAction func searchKeywordBtn4Tapped(_ sender: UIButton) {
-        setSearchKeyword(idx: 3)
+    // 뷰 눌러서 키보드 내리기
+    @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
 }
 
