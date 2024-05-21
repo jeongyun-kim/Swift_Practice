@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		E0F31B032BFB8CDE0012B800 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F31B022BFB8CDE0012B800 /* AppDelegate.swift */; };
 		E0F31B052BFB8CDE0012B800 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F31B042BFB8CDE0012B800 /* SceneDelegate.swift */; };
-		E0F31B072BFB8CDE0012B800 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F31B062BFB8CDE0012B800 /* ViewController.swift */; };
+		E0F31B072BFB8CDE0012B800 /* KaKaotalkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F31B062BFB8CDE0012B800 /* KaKaotalkViewController.swift */; };
 		E0F31B0A2BFB8CDE0012B800 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = E0F31B092BFB8CDE0012B800 /* Base */; };
 		E0F31B0C2BFB8CE00012B800 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0F31B0B2BFB8CE00012B800 /* Assets.xcassets */; };
 		E0F31B0F2BFB8CE00012B800 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = E0F31B0E2BFB8CE00012B800 /* Base */; };
+		E0F31B182BFC1D630012B800 /* MelonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F31B172BFC1D630012B800 /* MelonViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E0F31AFF2BFB8CDE0012B800 /* AutoLayoutPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoLayoutPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0F31B022BFB8CDE0012B800 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0F31B042BFB8CDE0012B800 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E0F31B062BFB8CDE0012B800 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E0F31B062BFB8CDE0012B800 /* KaKaotalkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaKaotalkViewController.swift; sourceTree = "<group>"; };
 		E0F31B092BFB8CDE0012B800 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E0F31B0B2BFB8CE00012B800 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E0F31B0E2BFB8CE00012B800 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E0F31B102BFB8CE00012B800 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0F31B172BFC1D630012B800 /* MelonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MelonViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,24 @@
 		E0F31B012BFB8CDE0012B800 /* AutoLayoutPractice */ = {
 			isa = PBXGroup;
 			children = (
+				E0F31B162BFC1D2E0012B800 /* ViewControllers */,
 				E0F31B022BFB8CDE0012B800 /* AppDelegate.swift */,
 				E0F31B042BFB8CDE0012B800 /* SceneDelegate.swift */,
-				E0F31B062BFB8CDE0012B800 /* ViewController.swift */,
 				E0F31B082BFB8CDE0012B800 /* Main.storyboard */,
 				E0F31B0B2BFB8CE00012B800 /* Assets.xcassets */,
 				E0F31B0D2BFB8CE00012B800 /* LaunchScreen.storyboard */,
 				E0F31B102BFB8CE00012B800 /* Info.plist */,
 			);
 			path = AutoLayoutPractice;
+			sourceTree = "<group>";
+		};
+		E0F31B162BFC1D2E0012B800 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E0F31B062BFB8CDE0012B800 /* KaKaotalkViewController.swift */,
+				E0F31B172BFC1D630012B800 /* MelonViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +149,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0F31B072BFB8CDE0012B800 /* ViewController.swift in Sources */,
+				E0F31B072BFB8CDE0012B800 /* KaKaotalkViewController.swift in Sources */,
 				E0F31B032BFB8CDE0012B800 /* AppDelegate.swift in Sources */,
+				E0F31B182BFC1D630012B800 /* MelonViewController.swift in Sources */,
 				E0F31B052BFB8CDE0012B800 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,6 +304,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L348QC8MG7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AutoLayoutPractice/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -324,6 +337,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L348QC8MG7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AutoLayoutPractice/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

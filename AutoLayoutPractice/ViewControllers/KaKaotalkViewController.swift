@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class KaKaotalkViewController: UIViewController {
     @IBOutlet var backgroundImageView: UIImageView!
     @IBOutlet var buttons: [UIButton]!
     @IBOutlet var profileImageView: UIImageView!
