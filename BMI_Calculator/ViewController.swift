@@ -8,6 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet var getSaveDataBtn: UIButton!
     @IBOutlet var weightView: UIView!
     @IBOutlet var heightView: UIView!
     @IBOutlet var calculateBtn: UIButton!
@@ -39,13 +40,12 @@ class ViewController: UIViewController {
         randomCalculateBtn.setTitle("랜덤으로 BMI 계산하기", for: .normal)
         randomCalculateBtn.setAttributedTitle(NSAttributedString(string: "랜덤으로 BMI 계산하기", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)]), for: .normal)
         randomCalculateBtn.tintColor = .systemRed
-        randomCalculateBtn.configuration?.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 0)
         
         configureLabel(q1Label, text: "키가 어떻게 되시나요?")
         configureLabel(q2Label, text: "몸무게는 어떻게 되시나요?")
         
         configureTextField(heightTextField, placeHolder: "키를 입력해주세요 (100이상 250이하)")
-        configureTextField(weightTextField, placeHolder: "몸무게를 입력해주세요 (20이상)")
+        configureTextField(weightTextField, placeHolder: "몸무게를 입력해주세요 (20이상 200이하)")
         
         configureUIView(heightView)
         configureUIView(weightView)
@@ -55,6 +55,10 @@ class ViewController: UIViewController {
         calculateBtn.backgroundColor = .purple
         calculateBtn.tintColor = .white
         calculateBtn.layer.cornerRadius = 12
+        
+        getSaveDataBtn.setTitle("데이터 불러오기", for: .normal)
+        getSaveDataBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        getSaveDataBtn.tintColor = .systemBlue
     }
     
     func configureTextField(_ textField: UITextField, placeHolder: String) {
@@ -73,13 +77,24 @@ class ViewController: UIViewController {
         label.text = text
         label.font = UIFont.systemFont(ofSize: 16)
     }
+
     
-    func alert(title: String) {
+    func alert(title: String, weight: Float? = nil, height: Float? = nil) {
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
-        let confirm = UIAlertAction(title: "확인", style: .default)
+        let confirm = UIAlertAction(title: "확인", style: .cancel)
+        let save = UIAlertAction(title: "저장", style: .default) { _ in
+            UserDefaults.standard.set([height, weight], forKey: "내 데이터")
+        }
         alert.addAction(confirm)
+        // 만약 BMI 계산을 거치지 않은 단순 알림창이라면
+        guard let weight, let height else {
+            present(alert, animated: true)
+            return
+        } // BMI 계산을 거친 알림창이라면
+        alert.addAction(save)
         present(alert, animated: true)
     }
+    
     
     // BMI : weight/(height*height*0.0001)
     func calculateBMI(weight: Float, height: Float) {
@@ -97,45 +112,42 @@ class ViewController: UIViewController {
             result = "과체중🥲"
         }
         let bmiString = String(format: "%.2f", bmi)
-        alert(title: "당신의 BMI는 \(bmiString)이며\n\(result)입니다")
+        alert(title: "당신의 BMI는 \(bmiString)이며\n\(result)입니다", weight: weight, height: height)
     }
 
-    @IBAction func calculateBtnTapped() {
-        var weight = weightTextField.text ?? ""
-        var height = heightTextField.text ?? ""
+    @IBAction func getSavedataBtnTapped(_ sender: UIButton) {
+        guard let savedata = UserDefaults.standard.array(forKey: "내 데이터") else {
+            alert(title: "저장된 데이터가 없습니다!")
+            return }
+        heightTextField.text = "\(savedata[0])"
+        weightTextField.text = "\(savedata[1])"
         
+    }
+    
+    @IBAction func calculateBtnTapped() {
+        // 공백 제거
+        var weight = weightTextField.text!.components(separatedBy: " ").joined()
+        var height = heightTextField.text!.components(separatedBy: " ").joined()
+        // 입력값이 모두 비어있을 때
         if weight == "" && height == "" {
-            alert(title: "데이터를 입력해주세요 ")
+            alert(title: "키와 몸무게를 입력해주세요")
         } else {
-            // 공백 제거
-            weight = weight.components(separatedBy: " ").joined()
-            height = height.components(separatedBy: " ").joined()
-            if let heightFloat = Float(height) {
-                if let weightFloat = Float(weight) {
-                    // 몸무게가 20미만, 키가 100미만 또는 250이상일 때
-                    // 키가 100미만 또는 키가 250이상일 때
-                    // 몸무게가 20미만일 때
-                    // 몸무게가 20이상일 때, 키가 100이상 250이하일 때
-                    if weightFloat < 20 && (heightFloat < 100 || heightFloat >= 250) {
-                        alert(title: "키와 몸무게를 확인해주세요")
-                    } else if heightFloat < 100 || heightFloat >= 250 {
-                        alert(title: "키를 확인해주세요")
-                    } else if weightFloat < 20 {
-                        alert(title: "몸무게를 확인해주세요")
-                    } else {
-                        calculateBMI(weight: weightFloat, height: heightFloat)
-                    }
-                } else {
-                    // height은 제대로 들어있는데 weight이 nil일 때
-                    alert(title: "몸무게를 입력해주세요")
-                }
+            guard let heightFloat = Float(height), let weightFloat = Float(weight) else {
+                alert(title: "키와 몸무게를 제대로 입력해주세요")
+                return
+            }
+            // 몸무게가 20미만 또는 200초과, 키가 100미만 또는 250초과일 때
+            // 키가 100미만 또는 키가 250초과일 때
+            // 몸무게가 20미만 또는 200초과일 때
+            // 몸무게가 20이상일 때, 키가 100이상 250이하일 때 ✓
+            if (weightFloat < 20 || weightFloat > 200) && (heightFloat < 100 || heightFloat > 250) {
+                alert(title: "키와 몸무게를 확인해주세요")
+            } else if heightFloat < 100 || heightFloat >= 250 {
+                alert(title: "키를 확인해주세요")
+            } else if weightFloat < 20 || weightFloat > 200 {
+                alert(title: "몸무게를 확인해주세요")
             } else {
-                // 만약 height이 nil인 상태에서 weight도 nil이라면
-                if Float(weight) == nil {
-                    alert(title: "키와 몸무게 모두 올바르게 입력해주세요")
-                } else { // weight은 제대로 들어와있는데 height이 nil일 때
-                    alert(title: "키를 입력해주세요")
-                }
+                calculateBMI(weight: weightFloat, height: heightFloat)
             }
         }
     }
@@ -145,8 +157,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func randomBtnTapped(_ sender: UIButton) {
-        let weight: Float = Float.random(in: 20..<200)
-        let height: Float = Float.random(in: 100..<250)
+        let weight: Float = Float.random(in: 20...200)
+        let height: Float = Float.random(in: 100...250)
         weightTextField.text = String(format: "%.2f", weight)
         heightTextField.text = String(format: "%.2f", height)
     }

@@ -68,15 +68,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRw-gi-QbQ">
-                                <rect key="frame" x="213" y="409.5" width="75" height="35"/>
+                                <rect key="frame" x="242" y="404.5" width="46" height="30"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
                                     <action selector="randomBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uRB-e2-qKX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WKs-Oh-qNH">
-                                <rect key="frame" x="32" y="484.5" width="256" height="33"/>
+                                <rect key="frame" x="32" y="499.5" width="256" height="33"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
@@ -103,6 +103,14 @@
                                     <constraint firstItem="woT-7h-juy" firstAttribute="top" secondItem="Jhi-Un-Qfa" secondAttribute="top" id="q8f-MQ-hVZ"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OP2-Vg-kKN">
+                                <rect key="frame" x="242" y="434.5" width="46" height="30"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="getSavedataBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="I2N-ab-jbL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -110,12 +118,12 @@
                         <constraints>
                             <constraint firstItem="Jhi-Un-Qfa" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.8" id="13X-ya-zOw"/>
                             <constraint firstItem="PTk-yL-zn1" firstAttribute="top" secondItem="DM0-mI-IvA" secondAttribute="bottom" constant="5" id="3hU-VJ-hMB"/>
-                            <constraint firstItem="WKs-Oh-qNH" firstAttribute="top" secondItem="gRw-gi-QbQ" secondAttribute="bottom" constant="40" id="4Md-TH-bDB"/>
                             <constraint firstItem="Jhi-Un-Qfa" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.07" id="4rD-we-94n"/>
                             <constraint firstItem="WKs-Oh-qNH" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.06" id="9Yo-4T-Q6g"/>
                             <constraint firstItem="Hc8-24-p1Q" firstAttribute="leading" secondItem="Jhi-Un-Qfa" secondAttribute="leading" constant="15" id="9ah-lY-R9U"/>
                             <constraint firstItem="DM0-mI-IvA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="A4E-lP-ZKV"/>
                             <constraint firstItem="Jhi-Un-Qfa" firstAttribute="top" secondItem="Hc8-24-p1Q" secondAttribute="bottom" constant="10" id="BpJ-Pi-vL0"/>
+                            <constraint firstItem="OP2-Vg-kKN" firstAttribute="top" secondItem="gRw-gi-QbQ" secondAttribute="bottom" id="Fa2-wc-s23"/>
                             <constraint firstItem="DM0-mI-IvA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="GiC-Oe-48c"/>
                             <constraint firstItem="iRD-Lt-Gr0" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.8" id="Lxc-Re-tWX"/>
                             <constraint firstItem="PTk-yL-zn1" firstAttribute="leading" secondItem="DM0-mI-IvA" secondAttribute="leading" id="MiG-5O-yRW"/>
@@ -125,12 +133,14 @@
                             <constraint firstItem="iRD-Lt-Gr0" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.07" id="XAc-i3-CAR"/>
                             <constraint firstItem="WKs-Oh-qNH" firstAttribute="trailing" secondItem="Jhi-Un-Qfa" secondAttribute="trailing" id="ZRn-1K-wvS"/>
                             <constraint firstItem="Hc8-24-p1Q" firstAttribute="top" secondItem="iRD-Lt-Gr0" secondAttribute="bottom" constant="20" id="Zc4-mF-FAS"/>
+                            <constraint firstItem="OP2-Vg-kKN" firstAttribute="trailing" secondItem="gRw-gi-QbQ" secondAttribute="trailing" id="acq-Cm-x8Y"/>
                             <constraint firstItem="b9b-vU-r3Y" firstAttribute="leading" secondItem="iRD-Lt-Gr0" secondAttribute="leading" constant="15" id="cnp-xy-kAZ"/>
                             <constraint firstItem="y7F-M5-WfX" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.35" id="eKr-Ya-AVT"/>
                             <constraint firstItem="b9b-vU-r3Y" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ipg-mG-raQ"/>
-                            <constraint firstItem="gRw-gi-QbQ" firstAttribute="top" secondItem="Jhi-Un-Qfa" secondAttribute="bottom" constant="10" id="pXn-hc-o8p"/>
+                            <constraint firstItem="gRw-gi-QbQ" firstAttribute="top" secondItem="Jhi-Un-Qfa" secondAttribute="bottom" constant="5" id="pXn-hc-o8p"/>
                             <constraint firstItem="b9b-vU-r3Y" firstAttribute="centerX" secondItem="iRD-Lt-Gr0" secondAttribute="centerX" id="qK2-6L-EId"/>
                             <constraint firstItem="y7F-M5-WfX" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="20" id="tne-25-uVA"/>
+                            <constraint firstItem="WKs-Oh-qNH" firstAttribute="top" secondItem="Jhi-Un-Qfa" secondAttribute="bottom" constant="100" id="uYS-EU-pvr"/>
                             <constraint firstItem="PTk-yL-zn1" firstAttribute="width" secondItem="DM0-mI-IvA" secondAttribute="width" multiplier="0.8" id="vne-6u-nge"/>
                             <constraint firstItem="gRw-gi-QbQ" firstAttribute="trailing" secondItem="Jhi-Un-Qfa" secondAttribute="trailing" id="vpk-6U-Th2"/>
                             <constraint firstItem="Jhi-Un-Qfa" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="wke-ES-GGf"/>
@@ -143,6 +153,7 @@
                     <connections>
                         <outlet property="calculateBtn" destination="WKs-Oh-qNH" id="us4-V3-YQF"/>
                         <outlet property="descLabel" destination="PTk-yL-zn1" id="bDJ-fI-xWU"/>
+                        <outlet property="getSaveDataBtn" destination="OP2-Vg-kKN" id="cYc-k1-cag"/>
                         <outlet property="heightTextField" destination="PFy-9M-pCB" id="um9-Y0-pzP"/>
                         <outlet property="heightView" destination="iRD-Lt-Gr0" id="0dQ-BC-iyJ"/>
                         <outlet property="imageView" destination="y7F-M5-WfX" id="lw7-CU-wGP"/>
