@@ -8,6 +8,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet var nickNameLabel: UILabel!
+    @IBOutlet var nicknameTextField: UITextField!
     @IBOutlet var getSaveDataBtn: UIButton!
     @IBOutlet var weightView: UIView!
     @IBOutlet var heightView: UIView!
@@ -41,12 +43,20 @@ class ViewController: UIViewController {
         randomCalculateBtn.setAttributedTitle(NSAttributedString(string: "랜덤으로 BMI 계산하기", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)]), for: .normal)
         randomCalculateBtn.tintColor = .systemRed
         
+        configureLabel(nickNameLabel, text: "닉네임이 어떻게 되시나요?")
         configureLabel(q1Label, text: "키가 어떻게 되시나요?")
         configureLabel(q2Label, text: "몸무게는 어떻게 되시나요?")
         
         configureTextField(heightTextField, placeHolder: "키를 입력해주세요 (100이상 250이하)")
         configureTextField(weightTextField, placeHolder: "몸무게를 입력해주세요 (20이상 200이하)")
-        
+        configureTextField(nicknameTextField, placeHolder: "닉네임을 입력해주세요")
+        // 텍스트필드 패딩
+        nicknameTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
+        nicknameTextField.leftViewMode = .always
+        nicknameTextField.rightView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
+        nicknameTextField.rightViewMode = .always
+       
+        configureUIView(nicknameTextField, cornerRadius: 17)
         configureUIView(heightView)
         configureUIView(weightView)
         
@@ -56,7 +66,7 @@ class ViewController: UIViewController {
         calculateBtn.tintColor = .white
         calculateBtn.layer.cornerRadius = 12
         
-        getSaveDataBtn.setTitle("데이터 불러오기", for: .normal)
+        getSaveDataBtn.setTitle("데이터 불러오기 및 리셋", for: .normal)
         getSaveDataBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         getSaveDataBtn.tintColor = .systemBlue
     }
@@ -67,8 +77,8 @@ class ViewController: UIViewController {
         textField.placeholder = placeHolder
     }
     
-    func configureUIView(_ view: UIView) {
-        view.layer.cornerRadius = 18
+    func configureUIView(_ view: UIView, cornerRadius: CGFloat? = 18) {
+        view.layer.cornerRadius = cornerRadius!
         view.layer.borderColor = UIColor.gray.cgColor
         view.layer.borderWidth = 1.5
     }
@@ -79,11 +89,13 @@ class ViewController: UIViewController {
     }
 
     
-    func alert(title: String, weight: Float? = nil, height: Float? = nil) {
+    func callAlert(title: String, weight: Float? = nil, height: Float? = nil) {
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         let confirm = UIAlertAction(title: "확인", style: .cancel)
         let save = UIAlertAction(title: "저장", style: .default) { _ in
-            UserDefaults.standard.set([height, weight], forKey: "내 데이터")
+            guard let nickname = self.nicknameTextField.text else { return }
+            UserDefaults.standard.set([height, weight], forKey: nickname)
+            self.callAlert(title: "저장이 완료되었습니다!")
         }
         alert.addAction(confirm)
         // 만약 BMI 계산을 거치지 않은 단순 알림창이라면
@@ -91,8 +103,12 @@ class ViewController: UIViewController {
             present(alert, animated: true)
             return
         } // BMI 계산을 거친 알림창이라면
-        alert.addAction(save)
-        present(alert, animated: true)
+        if nicknameTextField.text != "" {
+            alert.addAction(save)
+            present(alert, animated: true)
+        } else {
+            callAlert(title: "닉네임을 입력해주세요!")
+        }
     }
     
     
@@ -112,42 +128,71 @@ class ViewController: UIViewController {
             result = "과체중🥲"
         }
         let bmiString = String(format: "%.2f", bmi)
-        alert(title: "당신의 BMI는 \(bmiString)이며\n\(result)입니다", weight: weight, height: height)
+        callAlert(title: "당신의 BMI는 \(bmiString)이며\n\(result)입니다", weight: weight, height: height)
     }
 
     @IBAction func getSavedataBtnTapped(_ sender: UIButton) {
-        guard let savedata = UserDefaults.standard.array(forKey: "내 데이터") else {
-            alert(title: "저장된 데이터가 없습니다!")
-            return }
-        heightTextField.text = "\(savedata[0])"
-        weightTextField.text = "\(savedata[1])"
-        
+        let alert = UIAlertController(title: "닉네임을 입력해주세요", message: nil, preferredStyle: .alert)
+        alert.addTextField()
+        // 데이터 불러오기
+        let load = UIAlertAction(title: "불러오기", style: .default) { _ in
+            guard let nickname = alert.textFields?.first?.text else {
+                return
+            }
+            if let savedata = UserDefaults.standard.array(forKey: nickname) {
+                self.nicknameTextField.text = nickname
+                self.heightTextField.text = "\(savedata[0])"
+                self.weightTextField.text = "\(savedata[1])"
+            } else {
+                self.callAlert(title: "해당 닉네임으로 저장된 데이터가 없습니다!")
+            }
+        }
+        // 데이터 리셋
+        let reset = UIAlertAction(title: "데이터 삭제", style: .destructive) { _ in
+            guard let nickname = alert.textFields?.first?.text else { return }
+            if let savedata = UserDefaults.standard.array(forKey: nickname) {
+                UserDefaults.standard.removeObject(forKey: nickname)
+                self.callAlert(title: "삭제가 완료되었습니다!")
+            } else {
+                self.callAlert(title: "삭제할 데이터가 없습니다!")
+            }
+        }
+        // 취소
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        alert.addAction(load)
+        alert.addAction(reset)
+        alert.addAction(cancel)
+        present(alert, animated: true)
     }
     
     @IBAction func calculateBtnTapped() {
         // 공백 제거
-        var weight = weightTextField.text!.components(separatedBy: " ").joined()
-        var height = heightTextField.text!.components(separatedBy: " ").joined()
-        // 입력값이 모두 비어있을 때
-        if weight == "" && height == "" {
-            alert(title: "키와 몸무게를 입력해주세요")
+        if nicknameTextField.text == "" {
+            callAlert(title: "닉네임을 입력해주세요")
         } else {
-            guard let heightFloat = Float(height), let weightFloat = Float(weight) else {
-                alert(title: "키와 몸무게를 제대로 입력해주세요")
-                return
-            }
-            // 몸무게가 20미만 또는 200초과, 키가 100미만 또는 250초과일 때
-            // 키가 100미만 또는 키가 250초과일 때
-            // 몸무게가 20미만 또는 200초과일 때
-            // 몸무게가 20이상일 때, 키가 100이상 250이하일 때 ✓
-            if (weightFloat < 20 || weightFloat > 200) && (heightFloat < 100 || heightFloat > 250) {
-                alert(title: "키와 몸무게를 확인해주세요")
-            } else if heightFloat < 100 || heightFloat >= 250 {
-                alert(title: "키를 확인해주세요")
-            } else if weightFloat < 20 || weightFloat > 200 {
-                alert(title: "몸무게를 확인해주세요")
+            var weight = weightTextField.text!.components(separatedBy: " ").joined()
+            var height = heightTextField.text!.components(separatedBy: " ").joined()
+            // 입력값이 모두 비어있을 때
+            if weight == "" && height == "" {
+                callAlert(title: "키와 몸무게를 입력해주세요")
             } else {
-                calculateBMI(weight: weightFloat, height: heightFloat)
+                guard let heightFloat = Float(height), let weightFloat = Float(weight) else {
+                    callAlert(title: "키와 몸무게를 제대로 입력해주세요")
+                    return
+                }
+                // 몸무게가 20미만 또는 200초과, 키가 100미만 또는 250초과일 때
+                // 키가 100미만 또는 키가 250초과일 때
+                // 몸무게가 20미만 또는 200초과일 때
+                // 몸무게가 20이상일 때, 키가 100이상 250이하일 때 ✓
+                if (weightFloat < 20 || weightFloat > 200) && (heightFloat < 100 || heightFloat > 250) {
+                    callAlert(title: "키와 몸무게를 확인해주세요")
+                } else if heightFloat < 100 || heightFloat >= 250 {
+                    callAlert(title: "키를 확인해주세요")
+                } else if weightFloat < 20 || weightFloat > 200 {
+                    callAlert(title: "몸무게를 확인해주세요")
+                } else {
+                    calculateBMI(weight: weightFloat, height: heightFloat)
+                }
             }
         }
     }
