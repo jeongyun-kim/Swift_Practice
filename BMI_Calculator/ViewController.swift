@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet var nickNameLabel: UILabel!
     @IBOutlet var nicknameTextField: UITextField!
-    @IBOutlet var getSaveDataBtn: UIButton!
+    @IBOutlet var getSavedataBtn: UIButton!
     @IBOutlet var weightView: UIView!
     @IBOutlet var heightView: UIView!
     @IBOutlet var calculateBtn: UIButton!
@@ -66,9 +66,9 @@ class ViewController: UIViewController {
         calculateBtn.tintColor = .white
         calculateBtn.layer.cornerRadius = 12
         
-        getSaveDataBtn.setTitle("데이터 불러오기 및 리셋", for: .normal)
-        getSaveDataBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        getSaveDataBtn.tintColor = .systemBlue
+        getSavedataBtn.setTitle("데이터 불러오기 및 리셋", for: .normal)
+        getSavedataBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        getSavedataBtn.tintColor = .systemBlue
     }
     
     func configureTextField(_ textField: UITextField, placeHolder: String) {
@@ -166,10 +166,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func calculateBtnTapped() {
-        // 공백 제거
+        // 닉네임 없으면 알림
         if nicknameTextField.text == "" {
             callAlert(title: "닉네임을 입력해주세요")
         } else {
+            // 공백 제거
             var weight = weightTextField.text!.components(separatedBy: " ").joined()
             var height = heightTextField.text!.components(separatedBy: " ").joined()
             // 입력값이 모두 비어있을 때
