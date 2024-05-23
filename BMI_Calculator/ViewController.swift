@@ -103,12 +103,8 @@ class ViewController: UIViewController {
             present(alert, animated: true)
             return
         } // BMI 계산을 거친 알림창이라면
-        if nicknameTextField.text != "" {
-            alert.addAction(save)
-            present(alert, animated: true)
-        } else {
-            callAlert(title: "닉네임을 입력해주세요!")
-        }
+        alert.addAction(save)
+        present(alert, animated: true)
     }
     
     

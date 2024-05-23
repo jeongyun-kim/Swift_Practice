@@ -170,7 +170,7 @@
                     <connections>
                         <outlet property="calculateBtn" destination="WKs-Oh-qNH" id="us4-V3-YQF"/>
                         <outlet property="descLabel" destination="PTk-yL-zn1" id="bDJ-fI-xWU"/>
-                        <outlet property="getSaveDataBtn" destination="OP2-Vg-kKN" id="cYc-k1-cag"/>
+                        <outlet property="getSavedataBtn" destination="OP2-Vg-kKN" id="Mq8-qf-ZCu"/>
                         <outlet property="heightTextField" destination="PFy-9M-pCB" id="um9-Y0-pzP"/>
                         <outlet property="heightView" destination="iRD-Lt-Gr0" id="0dQ-BC-iyJ"/>
                         <outlet property="imageView" destination="y7F-M5-WfX" id="lw7-CU-wGP"/>
