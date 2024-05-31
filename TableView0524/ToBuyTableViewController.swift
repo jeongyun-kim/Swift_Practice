@@ -14,6 +14,7 @@ class ToBuyTableViewController: UITableViewController {
     @IBOutlet var addView: UIView!
     @IBOutlet var addTextField: UITextField!
     @IBOutlet var addBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()

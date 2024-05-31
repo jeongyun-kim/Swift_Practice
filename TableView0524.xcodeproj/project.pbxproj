@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E0C756442C09C4060099B0E5 /* ShoppingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C756422C09C4060099B0E5 /* ShoppingTableViewCell.swift */; };
+		E0C756452C09C4060099B0E5 /* ShoppingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0C756432C09C4060099B0E5 /* ShoppingTableViewCell.xib */; };
+		E0C756472C09C4D20099B0E5 /* ReusableIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C756462C09C4D20099B0E5 /* ReusableIdentifier.swift */; };
+		E0C756492C09C6D60099B0E5 /* ShoppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C756482C09C6D60099B0E5 /* ShoppingViewController.swift */; };
 		E0D80E332C0076BE00EAF595 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D80E322C0076BE00EAF595 /* AppDelegate.swift */; };
 		E0D80E352C0076BE00EAF595 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D80E342C0076BE00EAF595 /* SceneDelegate.swift */; };
 		E0D80E3A2C0076BE00EAF595 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = E0D80E392C0076BE00EAF595 /* Base */; };
@@ -19,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E0C756422C09C4060099B0E5 /* ShoppingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTableViewCell.swift; sourceTree = "<group>"; };
+		E0C756432C09C4060099B0E5 /* ShoppingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingTableViewCell.xib; sourceTree = "<group>"; };
+		E0C756462C09C4D20099B0E5 /* ReusableIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableIdentifier.swift; sourceTree = "<group>"; };
+		E0C756482C09C6D60099B0E5 /* ShoppingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingViewController.swift; sourceTree = "<group>"; };
 		E0D80E2F2C0076BE00EAF595 /* TableView0524.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableView0524.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0D80E322C0076BE00EAF595 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0D80E342C0076BE00EAF595 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +51,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E0C756412C09C3F70099B0E5 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E0D80E762C00AA9400EAF595 /* ToBuyCell.swift */,
+				E0C756422C09C4060099B0E5 /* ShoppingTableViewCell.swift */,
+				E0C756432C09C4060099B0E5 /* ShoppingTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		E0D80E262C0076BE00EAF595 = {
 			isa = PBXGroup;
 			children = (
@@ -62,16 +80,18 @@
 		E0D80E312C0076BE00EAF595 /* TableView0524 */ = {
 			isa = PBXGroup;
 			children = (
+				E0C756462C09C4D20099B0E5 /* ReusableIdentifier.swift */,
+				E0D80E782C00DE5800EAF595 /* Extensions.swift */,
+				E0D80E7A2C00E12D00EAF595 /* ToBuy.swift */,
+				E0C756412C09C3F70099B0E5 /* Cell */,
 				E0D80E382C0076BE00EAF595 /* TodoTableView.storyboard */,
+				E0C756482C09C6D60099B0E5 /* ShoppingViewController.swift */,
 				E0D80E742C00A99F00EAF595 /* ToBuyTableViewController.swift */,
 				E0D80E322C0076BE00EAF595 /* AppDelegate.swift */,
 				E0D80E342C0076BE00EAF595 /* SceneDelegate.swift */,
 				E0D80E3B2C0076BF00EAF595 /* Assets.xcassets */,
 				E0D80E3D2C0076BF00EAF595 /* LaunchScreen.storyboard */,
 				E0D80E402C0076BF00EAF595 /* Info.plist */,
-				E0D80E762C00AA9400EAF595 /* ToBuyCell.swift */,
-				E0D80E782C00DE5800EAF595 /* Extensions.swift */,
-				E0D80E7A2C00E12D00EAF595 /* ToBuy.swift */,
 			);
 			path = TableView0524;
 			sourceTree = "<group>";
@@ -135,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0D80E3C2C0076BF00EAF595 /* Assets.xcassets in Resources */,
+				E0C756452C09C4060099B0E5 /* ShoppingTableViewCell.xib in Resources */,
 				E0D80E3F2C0076BF00EAF595 /* Base in Resources */,
 				E0D80E3A2C0076BE00EAF595 /* Base in Resources */,
 			);
@@ -148,10 +169,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0D80E792C00DE5800EAF595 /* Extensions.swift in Sources */,
+				E0C756492C09C6D60099B0E5 /* ShoppingViewController.swift in Sources */,
+				E0C756472C09C4D20099B0E5 /* ReusableIdentifier.swift in Sources */,
 				E0D80E7B2C00E12D00EAF595 /* ToBuy.swift in Sources */,
 				E0D80E332C0076BE00EAF595 /* AppDelegate.swift in Sources */,
 				E0D80E752C00A99F00EAF595 /* ToBuyTableViewController.swift in Sources */,
 				E0D80E352C0076BE00EAF595 /* SceneDelegate.swift in Sources */,
+				E0C756442C09C4060099B0E5 /* ShoppingTableViewCell.swift in Sources */,
 				E0D80E772C00AA9400EAF595 /* ToBuyCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
