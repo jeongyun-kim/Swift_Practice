@@ -7,13 +7,23 @@
 
 import UIKit
 
+enum Emotions: String, CaseIterable {
+    case like = "좋아해"
+    case happy = "행복해"
+    case love = "사랑해"
+    case embarrassed = "당황해"
+    case sad = "속상해"
+    case tired = "피곤해"
+    case bitter = "씁쓸해"
+    case weird = "이상해"
+    case bad = "우울해"
+}
+
 class ViewController: UIViewController {
     @IBOutlet var emotionImageViewCollection: [UIImageView]!
     @IBOutlet var emotionLabelCollection: [UILabel]!
     @IBOutlet var emotionBtns: [UIButton]!
-    
-    let emotions: [String] = ["좋아해", "행복해", "사랑해", "당황해", "속상해", "피곤해", "씁쓸해", "이상해", "우울해"]
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
@@ -22,32 +32,40 @@ class ViewController: UIViewController {
 
     // 감정 카운트 보여주기
     func setupEmotion() {
-        for i in (0..<emotions.count) {
-            designEmotion(at: i)
+        for (idx, emotion) in Emotions.allCases.enumerated() {
+            designEmotion(at: idx, emotion.rawValue)
         }
     }
     
     func setupNavigation() {
         navigationItem.title = "감정일기"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.dash"), style: .plain, target: self, action: nil)
+        
+        let leftBarBtn = UIBarButtonItem(image: UIImage(systemName: "list.dash"), style: .plain, target: self, action: nil)
+        navigationItem.leftBarButtonItem = leftBarBtn
         navigationItem.leftBarButtonItem?.tintColor = .black
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "리셋", style: .plain, target: self, action: #selector(resetBtnTapped))
+        
+        let rightBarBtn = UIBarButtonItem(title: "리셋", style: .plain, target: self, action: #selector(resetBtnTapped))
+        navigationItem.rightBarButtonItem = rightBarBtn
         navigationItem.rightBarButtonItem?.tintColor = .black
     }
     
     // 감정 UI 디자인
-    func designEmotion(at i: Int) {
-        let emotionLabel = emotionLabelCollection[i]
-        let emotionImageView = emotionImageViewCollection[i]
-        let emotionCnt = UserDefaults.standard.integer(forKey: emotions[i])
-        print(emotions[i], emotionCnt)
-        emotionLabel.text = "\(emotions[i]) \(emotionCnt)"
+    func designEmotion(at idx: Int, _ emotion: String) {
+        let emotionLabel = emotionLabelCollection[idx]
+        let emotionImageView = emotionImageViewCollection[idx]
+        let emotionCnt = UserDefaults.standard.integer(forKey: emotion)
+        
+        emotionLabel.text = "\(emotion) \(emotionCnt)"
         emotionLabel.textAlignment = .center
-        emotionImageView.image = UIImage(named: "slime\(i+1)")
+        emotionImageView.image = UIImage(named: "slime\(idx+1)")
         emotionImageView.contentMode = .scaleAspectFit
-        emotionBtns[i].tag = i
+        emotionBtns[idx].tag = idx
     }
-    
+}
+
+
+// MARK: Action 
+extension ViewController {
     // 감정 카운트 리셋
     @objc func resetBtnTapped() {
         // UserDefault에 저장된 key 돌면서 value 삭제
@@ -59,15 +77,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func emotionBtnTapped(_ sender: UIButton) {
-        let i = sender.tag
-        // 감정
-        let emotion = emotions[i]
+        // 감정 이름 가져오기
+        let emotion = Emotions.allCases[sender.tag].rawValue
         // 해당 감정의 카운트 +1
         let emotionCnt = UserDefaults.standard.integer(forKey: emotion) + 1
         // 감정 카운트 저장
         UserDefaults.standard.set(emotionCnt, forKey: emotion)
         // 감정 카운트 label에 표시
-        emotionLabelCollection[i].text = "\(emotions[i]) \(emotionCnt)"
+        emotionLabelCollection[sender.tag].text = "\(emotion) \(emotionCnt)"
     }
 }
-
