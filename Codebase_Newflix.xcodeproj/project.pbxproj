@@ -18,6 +18,7 @@
 		E0E49F8F2C0F24FB00DA4BCB /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E49F8E2C0F24FB00DA4BCB /* SignupViewController.swift */; };
 		E0E49F952C0F28EE00DA4BCB /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E49F942C0F28EE00DA4BCB /* UIViewController + Extension.swift */; };
 		E0E49F972C0F29F200DA4BCB /* SaveContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E49F962C0F29F200DA4BCB /* SaveContentsViewController.swift */; };
+		E0E49F992C0F2C4600DA4BCB /* UITextField + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E49F982C0F2C4600DA4BCB /* UITextField + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		E0E49F8E2C0F24FB00DA4BCB /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		E0E49F942C0F28EE00DA4BCB /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
 		E0E49F962C0F29F200DA4BCB /* SaveContentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveContentsViewController.swift; sourceTree = "<group>"; };
+		E0E49F982C0F2C4600DA4BCB /* UITextField + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				E0E49F7D2C0F04BF00DA4BCB /* LaunchScreen.storyboard */,
 				E0E49F802C0F04BF00DA4BCB /* Info.plist */,
 				E0E49F942C0F28EE00DA4BCB /* UIViewController + Extension.swift */,
+				E0E49F982C0F2C4600DA4BCB /* UITextField + Extension.swift */,
 			);
 			path = Codebase_Newflix;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 				E0E49F972C0F29F200DA4BCB /* SaveContentsViewController.swift in Sources */,
 				E0E49F952C0F28EE00DA4BCB /* UIViewController + Extension.swift in Sources */,
 				E0E49F752C0F04BE00DA4BCB /* SceneDelegate.swift in Sources */,
+				E0E49F992C0F2C4600DA4BCB /* UITextField + Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +320,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L348QC8MG7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Codebase_Newflix/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -347,6 +352,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L348QC8MG7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Codebase_Newflix/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -12,5 +12,6 @@ extension UIViewController {
         view.backgroundColor = .black
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         navigationItem.title = title
+        navigationController?.navigationBar.tintColor = .white
     }
 }

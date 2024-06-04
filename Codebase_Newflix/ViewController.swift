@@ -94,6 +94,13 @@ class ViewController: UIViewController {
         setupHierarchy()
         setupConstraints()
         setupUI("홈")
+        let signUp = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(signUpBtnTapped))
+        navigationItem.rightBarButtonItem = signUp
+    }
+    
+    @objc func signUpBtnTapped(_ sender: UIButton) {
+        let vc = SignupViewController()
+        present(vc, animated: true)
     }
     
     private func setupHierarchy() {
