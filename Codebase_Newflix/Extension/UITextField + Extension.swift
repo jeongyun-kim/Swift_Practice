@@ -12,7 +12,7 @@ extension UITextField {
         self.backgroundColor = .darkGray
         self.textColor = .white
         self.textAlignment = .center
-        self.layer.cornerRadius = 6
+        self.layer.cornerRadius = custom.cornerRadius
         self.font = UIFont.systemFont(ofSize: 14)
     }
 }

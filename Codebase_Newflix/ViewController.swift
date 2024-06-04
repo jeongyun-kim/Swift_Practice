@@ -11,11 +11,8 @@ import SnapKit
 class ViewController: UIViewController {
     let mainImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 10
         imageView.backgroundColor = .systemBlue
-        imageView.image = UIImage(named: "2")
-        imageView.layer.masksToBounds = true
+        imageView.configureImageView("2")
         return imageView
     }()
     
@@ -29,7 +26,7 @@ class ViewController: UIViewController {
     
     let playBtn: UIButton = {
         let button = UIButton()
-        button.layer.cornerRadius = 6
+        button.layer.cornerRadius = custom.cornerRadius
         button.backgroundColor = .white
         return button
     }()
@@ -37,14 +34,14 @@ class ViewController: UIViewController {
     let playImageView: UIImageView = {
        let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.layer.cornerRadius = 6
+        imageView.layer.cornerRadius = custom.cornerRadius
         imageView.image = UIImage(named: "play_normal")
         return imageView
     }()
     
     let likeBtn: UIButton = {
         let button = UIButton()
-        button.layer.cornerRadius = 6
+        button.layer.cornerRadius = custom.cornerRadius
         button.backgroundColor = .darkGray
         button.setImage(UIImage(systemName: "plus"), for: .normal)
         button.setTitle(" 내가 찜한 리스트", for: .normal)
@@ -64,27 +61,21 @@ class ViewController: UIViewController {
     let firstContentImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .systemPink
-        imageView.layer.cornerRadius = 10
-        imageView.image = UIImage(named: "명량")
-        imageView.layer.masksToBounds = true
+        imageView.configureImageView("명량")
         return imageView
     }()
     
     let secondContentImageView: UIImageView = {
        let imageView = UIImageView()
-        imageView.backgroundColor = .systemPink
-        imageView.layer.cornerRadius = 10
-        imageView.image = UIImage(named: "아바타")
-        imageView.layer.masksToBounds = true
+        imageView.backgroundColor = .systemYellow
+        imageView.configureImageView("아바타")
         return imageView
     }()
     
     let thirdContentImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .systemPink
-        imageView.layer.cornerRadius = 10
-        imageView.image = UIImage(named: "암살")
-        imageView.layer.masksToBounds = true
+        imageView.backgroundColor = .systemGreen
+        imageView.configureImageView("암살")
         return imageView
     }()
     

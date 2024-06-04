@@ -58,7 +58,7 @@ class SignupViewController: UIViewController {
         let attributedTitle = NSAttributedString(string: "회원가입", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .bold)])
         button.setAttributedTitle(attributedTitle, for: .normal)
         button.backgroundColor = .white
-        button.layer.cornerRadius = 6
+        button.layer.cornerRadius = custom.cornerRadius
         return button
     }()
     

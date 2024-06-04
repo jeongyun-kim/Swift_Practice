@@ -19,6 +19,8 @@
 		E0E49F952C0F28EE00DA4BCB /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E49F942C0F28EE00DA4BCB /* UIViewController + Extension.swift */; };
 		E0E49F972C0F29F200DA4BCB /* SaveContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E49F962C0F29F200DA4BCB /* SaveContentsViewController.swift */; };
 		E0E49F992C0F2C4600DA4BCB /* UITextField + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E49F982C0F2C4600DA4BCB /* UITextField + Extension.swift */; };
+		E0E49FBC2C0F39E600DA4BCB /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E49FBB2C0F39E600DA4BCB /* UIImageView + Extension.swift */; };
+		E0E49FBE2C0F3AD100DA4BCB /* custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E49FBD2C0F3AD100DA4BCB /* custom.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		E0E49F942C0F28EE00DA4BCB /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
 		E0E49F962C0F29F200DA4BCB /* SaveContentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveContentsViewController.swift; sourceTree = "<group>"; };
 		E0E49F982C0F2C4600DA4BCB /* UITextField + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extension.swift"; sourceTree = "<group>"; };
+		E0E49FBB2C0F39E600DA4BCB /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
+		E0E49FBD2C0F3AD100DA4BCB /* custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = custom.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,8 @@
 		E0E49F712C0F04BE00DA4BCB /* Codebase_Newflix */ = {
 			isa = PBXGroup;
 			children = (
+				E0E49FBD2C0F3AD100DA4BCB /* custom.swift */,
+				E0E49FBA2C0F39DC00DA4BCB /* Extension */,
 				E0E49F722C0F04BE00DA4BCB /* AppDelegate.swift */,
 				E0E49F742C0F04BE00DA4BCB /* SceneDelegate.swift */,
 				E0E49F962C0F29F200DA4BCB /* SaveContentsViewController.swift */,
@@ -78,10 +84,18 @@
 				E0E49F7B2C0F04BF00DA4BCB /* Assets.xcassets */,
 				E0E49F7D2C0F04BF00DA4BCB /* LaunchScreen.storyboard */,
 				E0E49F802C0F04BF00DA4BCB /* Info.plist */,
-				E0E49F942C0F28EE00DA4BCB /* UIViewController + Extension.swift */,
-				E0E49F982C0F2C4600DA4BCB /* UITextField + Extension.swift */,
 			);
 			path = Codebase_Newflix;
+			sourceTree = "<group>";
+		};
+		E0E49FBA2C0F39DC00DA4BCB /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E0E49F942C0F28EE00DA4BCB /* UIViewController + Extension.swift */,
+				E0E49F982C0F2C4600DA4BCB /* UITextField + Extension.swift */,
+				E0E49FBB2C0F39E600DA4BCB /* UIImageView + Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +175,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0E49FBE2C0F3AD100DA4BCB /* custom.swift in Sources */,
+				E0E49FBC2C0F39E600DA4BCB /* UIImageView + Extension.swift in Sources */,
 				E0E49F772C0F04BE00DA4BCB /* ViewController.swift in Sources */,
 				E0E49F8D2C0F245F00DA4BCB /* NewHotViewController.swift in Sources */,
 				E0E49F8F2C0F24FB00DA4BCB /* SignupViewController.swift in Sources */,
