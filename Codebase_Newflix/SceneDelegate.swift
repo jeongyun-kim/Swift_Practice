@@ -13,12 +13,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: windowScene) // SceneDelegate의 프로퍼티에 설정해줌
-        let mainViewController = ViewController() // 맨 처음 보여줄 ViewController
-        let navigationController = UINavigationController(rootViewController : mainViewController)
-        // NavigationController에 처음으로 보여질 화면을 rootView로 지정
-        window?.rootViewController = navigationController
+        // SceneDelegate의 프로퍼티에 설정
+        window = UIWindow(windowScene: windowScene)
+        
+        // 각 뷰컨에 네비게이션 넣어주기
+        let firstViewController = UINavigationController(rootViewController : ViewController())
+        
+        // 탭바 구성
+        let tabBarController = UITabBarController()
+        tabBarController.setViewControllers([firstViewController], animated: true)
+        // 탭바 아이템 구성 
+        if let items = tabBarController.tabBar.items {
+            items[0].selectedImage = UIImage(systemName: "play.house.fill")
+            items[0].image = UIImage(systemName: "play.house")
+        }
+        
+        // 처음 보여질 화면(=탭바)을 root로 설정하고 보여주기
+        window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
     }
 
