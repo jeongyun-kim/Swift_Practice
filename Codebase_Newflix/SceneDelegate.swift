@@ -20,14 +20,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // 각 뷰컨에 네비게이션 넣어주기
         let firstViewController = UINavigationController(rootViewController : ViewController())
+        let secondViewController = UINavigationController(rootViewController: NewHotViewController())
+        let thirdViewController = UINavigationController(rootViewController: SaveContentsViewController())
         
         // 탭바 구성
         let tabBarController = UITabBarController()
-        tabBarController.setViewControllers([firstViewController], animated: true)
-        // 탭바 아이템 구성 
+        tabBarController.setViewControllers([firstViewController, secondViewController, thirdViewController], animated: true)
+        tabBarController.tabBar.tintColor = .white
+        // 탭바 아이템 구성
         if let items = tabBarController.tabBar.items {
             items[0].selectedImage = UIImage(systemName: "play.house.fill")
             items[0].image = UIImage(systemName: "play.house")
+            items[0].title = "홈"
+            
+            items[1].selectedImage = UIImage(systemName: "flame.fill")
+            items[1].image = UIImage(systemName: "flame")
+            items[1].title = "New & Hot"
+            
+            items[2].selectedImage = UIImage(systemName: "square.and.arrow.down.fill")
+            items[2].image = UIImage(systemName: "square.and.arrow.down")
+            items[2].title = "저장한 콘텐츠 목록"
         }
         
         // 처음 보여질 화면(=탭바)을 root로 설정하고 보여주기
