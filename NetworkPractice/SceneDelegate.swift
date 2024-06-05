@@ -13,10 +13,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        // SceneDelegate의 프로퍼티에 설정
+        window = UIWindow(windowScene: windowScene)
+        let lottoView = LottoViewController()
+        let movieView = MovieViewController()
+        let tabBarController = UITabBarController()
+        tabBarController.setViewControllers([lottoView, movieView], animated: true)
+        if let items = tabBarController.tabBar.items {
+            items[0].selectedImage = UIImage(systemName: "number.circle.fill")
+            items[0].image = UIImage(systemName: "number.circle")
+            
+            items[1].selectedImage = UIImage(systemName: "fpopcorn.circle.fill")
+            items[1].image = UIImage(systemName: "popcorn.circle")
+        }
+        // 처음 보여질 화면(=탭바)을 root로 설정하고 보여주기
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
