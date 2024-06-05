@@ -10,7 +10,7 @@ import Alamofire
 import SnapKit
 import Toast
 
-class MovieViewController: UIViewController {
+class MovieViewController: UIViewController, setup {
     let tableView: UITableView = {
         let tableView = UITableView()
         tableView.keyboardDismissMode = .onDrag
@@ -51,6 +51,8 @@ class MovieViewController: UIViewController {
         }
     }
     
+    
+    // MARK: viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
@@ -61,14 +63,14 @@ class MovieViewController: UIViewController {
         network()
     }
     
-    private func setupHierarchy() {
+    func setupHierarchy() {
         view.addSubview(searchTextField)
         view.addSubview(border)
         view.addSubview(tableView)
         view.addSubview(searchBtn)
     }
     
-    private func setupConstraints() {
+    func setupConstraints() {
         searchTextField.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide).offset(20)
             $0.leading.equalTo(view.safeAreaLayoutGuide).inset(16)
@@ -94,7 +96,7 @@ class MovieViewController: UIViewController {
         }
     }
     
-    private func setupTableView() {
+    func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -103,17 +105,18 @@ class MovieViewController: UIViewController {
         tableView.register(MovieTableViewCell.self, forCellReuseIdentifier: MovieTableViewCell.identifier)
     }
     
-    private func setupUI() {
+    func setupUI() {
         view.backgroundColor = .lightGray
         tableView.backgroundColor = .lightGray
     }
     
-    private func addTargets() {
+    func addTargets() {
         searchTextField.addTarget(self, action: #selector(textFieldDidEditingBegin), for: .editingDidBegin)
         searchTextField.addTarget(self, action: #selector(textFieldDidEditingEnd), for: .editingDidEnd)
         searchBtn.addTarget(self, action: #selector(searchBtnTapped), for: .touchUpInside)
     }
     
+    // MARK: addTarget
     // 입력 시작하면 placeHolder 지우기
     @objc func textFieldDidEditingBegin(_ sender: UITextField) {
         searchTextField.placeholder = ""
@@ -175,7 +178,6 @@ class MovieViewController: UIViewController {
         }
     }
 }
-
 
 // MARK: TableViewExtension
 extension MovieViewController: UITableViewDelegate, UITableViewDataSource {
