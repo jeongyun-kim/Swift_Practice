@@ -10,17 +10,18 @@ import Alamofire
 import SnapKit
 
 class LottoViewController: UIViewController, setup {
-    let pickerView: UIPickerView = {
-        let pickerView = UIPickerView()
-        return pickerView
-    }()
+    
+    var list: [String] = Lotto.LottoDates
+    
+    let pickerView = UIPickerView()
     
     let drwNotextField: UITextField = {
         let textField = UITextField()
         textField.layer.borderColor = UIColor.lightGray.cgColor
-        textField.layer.borderWidth = 0.5
+        textField.layer.borderWidth = 0.4
         textField.layer.cornerRadius = 6
         textField.tintColor = .clear
+        textField.textAlignment = .center
         return textField
     }()
     
@@ -34,7 +35,6 @@ class LottoViewController: UIViewController, setup {
     let drwNoLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
-        label.text = "8888-88-88 추첨"
         label.textColor = .lightGray
         return label
     }()
@@ -47,7 +47,6 @@ class LottoViewController: UIViewController, setup {
     
     let resultNoLabel: UILabel = {
         let label = UILabel()
-        label.text = "931회"
         label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         label.textColor = .systemYellow
         return label
@@ -99,12 +98,14 @@ class LottoViewController: UIViewController, setup {
     }()
 
 
-    
+    // MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         setupHierarchy()
         setupConstraints()
+        setupPickerView()
         setupUI()
+        network()
     }
     
     func setupHierarchy() {
@@ -158,9 +159,14 @@ class LottoViewController: UIViewController, setup {
         }
         
         bnusLabel.snp.makeConstraints {
-            $0.trailing.equalTo(lottoStackView.snp.trailing)
+            $0.trailing.equalTo(lottoStackView.snp.trailing).inset(2)
             $0.top.equalTo(lottoStackView.snp.bottom).offset(4)
         }
+    }
+    
+    func setupPickerView() {
+        pickerView.delegate = self
+        pickerView.dataSource = self
     }
     
     func setupUI() {
@@ -170,9 +176,67 @@ class LottoViewController: UIViewController, setup {
             $0.configureLottoLabel()
         }
     }
+    
+    func network() {
+        AF.request(LottoUrl.lottoUrl).responseDecodable(of: Lotto.self) { response in
+            switch response.result {
+            case .success(let value):
+                self.configureLottoData(value)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func configureLottoData(_ data: Lotto) {
+        configureLottoBall(data.drwtNo1, label: drwtNo1)
+        configureLottoBall(data.drwtNo2, label: drwtNo2)
+        configureLottoBall(data.drwtNo3, label: drwtNo3)
+        configureLottoBall(data.drwtNo4, label: drwtNo4)
+        configureLottoBall(data.drwtNo5, label: drwtNo5)
+        configureLottoBall(data.drwtNo6, label: drwtNo6)
+        configureLottoBall(data.bnusNo, label: bnusNo)
+        resultNoLabel.text = "\(data.drwNo)회"
+        drwNoLabel.text = "\(data.drwNoDate) 추첨"
+    }
+    
+    func configureLottoBall(_ drwtNo: Int, label: UILabel) {
+        var backgroundColor: UIColor = .clear
+        switch drwtNo {
+        case 1...10: backgroundColor = .systemYellow
+        case 11...20: backgroundColor = .systemBlue
+        case 21...30: backgroundColor = .systemRed
+        case 31...40: backgroundColor = .lightGray
+        case 41...45: backgroundColor = .systemGreen
+        default: break
+        }
+        label.backgroundColor = backgroundColor
+        label.text = "\(drwtNo)"
+    }
 
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
+    }
+}
+
+// MARK: PickerViewExtension
+extension LottoViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return list.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return list[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        drwNotextField.text = list[row]
+        LottoUrl.drwNo = list[row]
+        network()
     }
 }
