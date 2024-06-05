@@ -21,6 +21,7 @@
 		E0387EAB2C10B2A80093C185 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0387EAA2C10B2A80093C185 /* MovieTableViewCell.swift */; };
 		E0387EAE2C10B2C60093C185 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E0387EAD2C10B2C60093C185 /* SnapKit */; };
 		E0387EB12C10B2D00093C185 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E0387EB02C10B2D00093C185 /* Alamofire */; };
+		E0387EB42C10B3880093C185 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0387EB32C10B3880093C185 /* Movie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		E0387EA62C10B1E30093C185 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		E0387EA82C10B21E0093C185 /* ReusableIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableIdentifier.swift; sourceTree = "<group>"; };
 		E0387EAA2C10B2A80093C185 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
+		E0387EB32C10B3880093C185 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 		E0387E892C10B0930093C185 /* NetworkPractice */ = {
 			isa = PBXGroup;
 			children = (
+				E0387EB22C10B3810093C185 /* Model */,
 				E0387EA52C10B1C30093C185 /* Lotto */,
 				E0387EA02C10B1AB0093C185 /* Movie */,
 				E0387E8A2C10B0930093C185 /* AppDelegate.swift */,
@@ -103,6 +106,14 @@
 				E0387EA32C10B1BA0093C185 /* LottoViewController.swift */,
 			);
 			path = Lotto;
+			sourceTree = "<group>";
+		};
+		E0387EB22C10B3810093C185 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E0387EB32C10B3880093C185 /* Movie.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +198,7 @@
 			files = (
 				E0387EA92C10B21E0093C185 /* ReusableIdentifier.swift in Sources */,
 				E0387EA42C10B1BA0093C185 /* LottoViewController.swift in Sources */,
+				E0387EB42C10B3880093C185 /* Movie.swift in Sources */,
 				E0387E8F2C10B0930093C185 /* ViewController.swift in Sources */,
 				E0387E8B2C10B0930093C185 /* AppDelegate.swift in Sources */,
 				E0387E8D2C10B0930093C185 /* SceneDelegate.swift in Sources */,
