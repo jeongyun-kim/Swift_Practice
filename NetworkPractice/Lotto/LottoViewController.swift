@@ -27,14 +27,13 @@ class LottoViewController: UIViewController, setup {
     
     let guideLabel: UILabel = {
         let label = UILabel()
-        label.text = "당첨번호 안내"
-        label.font = Font.descFont
+        label.configureFont("당첨번호 안내", size: 14)
         return label
     }()
     
     let drwNoLabel: UILabel = {
         let label = UILabel()
-        label.font = Font.descFont
+        label.configureFont(size: 14)
         label.textColor = .lightGray
         return label
     }()
@@ -47,15 +46,14 @@ class LottoViewController: UIViewController, setup {
     
     let resultNoLabel: UILabel = {
         let label = UILabel()
-        label.font = Font.boldTitleFont
+        label.configureFont(size: 18, weight: .bold)
         label.textColor = .systemYellow
         return label
     }()
     
     let resultLabel: UILabel = {
         let label = UILabel()
-        label.text = "당첨결과"
-        label.font = Font.regularTitleFont
+        label.configureFont("당첨결과", size: 18)
         return label
     }()
     
@@ -77,8 +75,7 @@ class LottoViewController: UIViewController, setup {
     
     let bnusLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.text = "보너스"
+        label.configureFont("보너스", size: 14)
         label.textColor = .lightGray
         return label
     }()
@@ -180,14 +177,14 @@ class LottoViewController: UIViewController, setup {
         AF.request(LottoUrl.lottoUrl).responseDecodable(of: Lotto.self) { response in
             switch response.result {
             case .success(let value):
-                self.configureLottoBall(value)
+                self.configureResult(value)
             case .failure(let error):
                 print(error)
             }
         }
     }
     
-    private func configureLottoBall(_ data: Lotto) {
+    private func configureResult(_ data: Lotto) {
         // 7번째 글자는 + 로 입력되어있어야하고 lottoNoLabels의 인덱스와 꼬이지 않게 7번째는 nil처리
         let lottoData: [Int?] = [data.drwtNo1, data.drwtNo2, data.drwtNo3, data.drwtNo4, data.drwtNo5, data.drwtNo6, nil, data.bnusNo]
         for (i, drwtNo) in lottoData.enumerated() {

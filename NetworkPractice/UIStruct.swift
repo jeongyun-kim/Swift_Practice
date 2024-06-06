@@ -7,20 +7,7 @@
 
 import UIKit
 
-struct Font {
-    static let etcFont = UIFont.systemFont(ofSize: 13)
-    static let descFont = UIFont.systemFont(ofSize: 14)
-    static let chatFont = UIFont.systemFont(ofSize: 15)
-    static let boldTitleFont = UIFont.systemFont(ofSize: 18, weight: .bold)
-    static let regularTitleFont = UIFont.systemFont(ofSize: 18, weight: .regular)
-}
-
 struct Layer {
     static let cornerRadius: CGFloat = 6
 }
-
-struct Axis {
-    static let horizontalAxis: NSLayoutConstraint.Axis = .horizontal
-}
-
 

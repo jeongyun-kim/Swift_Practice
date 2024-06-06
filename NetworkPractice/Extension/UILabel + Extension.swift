@@ -25,8 +25,9 @@ extension UILabel {
         }
     }
     
-    func configureDescFont() {
-        self.font = UIFont.systemFont(ofSize: 14)
+    func configureFont(_ text: String = "", size: CGFloat, weight: UIFont.Weight = .regular) {
+        self.text = text
+        self.font = UIFont.systemFont(ofSize: size, weight: weight)
     }
 }
 

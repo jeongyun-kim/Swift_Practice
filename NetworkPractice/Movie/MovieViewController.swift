@@ -19,7 +19,7 @@ class MovieViewController: UIViewController, setup {
     
     let searchTextField: UITextField = {
         let textField = UITextField()
-        let attributedPlaceholder = NSAttributedString(string: "'20210101' 과 같은 형식으로 검색해주세요", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: Font.descFont])
+        let attributedPlaceholder = NSAttributedString(string: "'20210101' 과 같은 형식으로 검색해주세요", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)])
         textField.attributedPlaceholder = attributedPlaceholder
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
         textField.leftViewMode = .always
@@ -38,7 +38,7 @@ class MovieViewController: UIViewController, setup {
     let searchBtn: UIButton = {
         let button = UIButton()
         button.setTitle("검색", for: .normal)
-        button.titleLabel?.font = Font.descFont
+        button.titleLabel?.configureFont(size: 14)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .white
         return button
@@ -134,15 +134,14 @@ class MovieViewController: UIViewController, setup {
         guard let keyword = searchTextField.text else { return }
         //  - 년도 / 월 / 일 제대로 입력했는지 확인하기
         if !keyword.isEmpty {
-            let cnt = keyword.components(separatedBy: " ").joined().count
-            if cnt == 8 && checkDate(keyword){
-                print("검색가보자궁🚀")
+            let cntLengthCheck = keyword.components(separatedBy: " ").joined().count == 8 ? true : false
+            if cntLengthCheck && checkDate(keyword){
                 MovieUrl.movieUrl = keyword
                 network()
-            } else {
+            } else { // 입력값이 유효하지 않음
                 self.showToast("입력값을 확인해주세요!")
             }
-        } else {
+        } else { // 아무런 날짜도 입력하지 않음
             self.showToast("검색할 날을 입력해주세요!")
         }
     }
@@ -151,10 +150,10 @@ class MovieViewController: UIViewController, setup {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYYMMdd"
         guard let inputDate = dateFormatter.date(from: keyword) else { return false }
-        let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: Date())
-        let result: ComparisonResult = inputDate.compare(yesterday!)
-        // -1 : 과거 / 1 미래
-        // - 미래 데이터는 존재하지 않으므로 false 처리로 사용자에게 데이터 입력 토스트 띄우기
+        let yesterdayDate = Calendar.current.date(byAdding: .day, value: -1, to: Date())
+        let result: ComparisonResult = inputDate.compare(yesterdayDate!)
+        // -1 과거 / 1 미래
+        // - 미래 데이터는 존재하지 않으므로 false 처리로 사용자에게 데이터 입력값을 확인해달라는 토스트 띄우기
         // - 과거 데이터는 일단 검색 후, 받아오는 데이터가 비어있다면 검색결과 없다는 토스트 띄우기
         return result.rawValue == -1 ? true : false
     }
