@@ -8,14 +8,22 @@
 import UIKit
 
 extension UILabel {
-    func configureLottoLabel() {
-        self.text = "1"
-        self.backgroundColor = .lightGray
-        self.clipsToBounds = true
-        self.layer.cornerRadius = 20
-        self.textAlignment = .center
-        self.font = UIFont.systemFont(ofSize: 14, weight: .bold)
-        self.textColor = .white
+    func configureLottoLabel(_ type: BallType = .ball) {
+        switch type {
+        case .ball:
+            self.backgroundColor = .lightGray
+            self.clipsToBounds = true
+            self.layer.cornerRadius = 20
+            self.textAlignment = .center
+            self.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+            self.textColor = .white
+        case .plus:
+            self.text = "+"
+            self.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+            self.textColor = .darkGray
+            self.textAlignment = .center
+        }
+        
     }
 }
 

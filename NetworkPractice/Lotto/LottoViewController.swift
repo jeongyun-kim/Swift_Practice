@@ -69,29 +69,15 @@ class LottoViewController: UIViewController, setup {
     let lottoStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
-        stackView.distribution = .fillEqually
         stackView.spacing = 2
         return stackView
     }()
     
-    let drwtNo1 = UILabel()
-    let drwtNo2 = UILabel()
-    let drwtNo3 = UILabel()
-    let drwtNo4 = UILabel()
-    let drwtNo5 = UILabel()
-    let drwtNo6 = UILabel()
-    let plus: UILabel = {
-        let label = UILabel()
-        label.text = "+"
-        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-        label.textColor = .darkGray
-        label.textAlignment = .center
-        return label
-    }()
-    let bnusNo = UILabel()
+    var lottoNoLabels = (0...7).map { _ in UILabel() }
+    
     let bnusLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 13)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.text = "보너스"
         label.textColor = .lightGray
         return label
@@ -114,11 +100,11 @@ class LottoViewController: UIViewController, setup {
         view.addSubview(drwNoLabel)
         view.addSubview(border)
         view.addSubview(stackView)
-        [resultNoLabel, resultLabel].forEach { label in
-            stackView.addArrangedSubview(label)
+        [resultNoLabel, resultLabel].forEach {
+            stackView.addArrangedSubview($0)
         }
         view.addSubview(lottoStackView)
-        [drwtNo1, drwtNo2, drwtNo3, drwtNo4, drwtNo5, drwtNo6, plus, bnusNo].forEach {
+        lottoNoLabels.forEach {
             lottoStackView.addArrangedSubview($0)
         }
         view.addSubview(bnusLabel)
@@ -153,13 +139,18 @@ class LottoViewController: UIViewController, setup {
         
         lottoStackView.snp.makeConstraints {
             $0.top.equalTo(stackView.snp.bottom).offset(24)
-            $0.width.equalTo(334)
             $0.height.equalTo(40)
             $0.centerX.equalTo(view)
         }
+    
+        for label in lottoNoLabels {
+            label.snp.makeConstraints {
+                $0.width.equalTo(lottoStackView.snp.height)
+            }
+        }
         
         bnusLabel.snp.makeConstraints {
-            $0.trailing.equalTo(lottoStackView.snp.trailing).inset(2)
+            $0.trailing.equalTo(lottoStackView.snp.trailing)
             $0.top.equalTo(lottoStackView.snp.bottom).offset(4)
         }
     }
@@ -171,9 +162,17 @@ class LottoViewController: UIViewController, setup {
     
     func setupUI() {
         view.backgroundColor = .systemBackground
+        
         drwNotextField.inputView = pickerView
-        [drwtNo1, drwtNo2, drwtNo3, drwtNo4, drwtNo5, drwtNo6, bnusNo].forEach {
-            $0.configureLottoLabel()
+        drwNotextField.text = list.first // 화면 진입 시, 최신 로또 회차 띄우기
+        
+        // 0번째~5번째, 7번째 데이터는 로또 번호
+        // 6번째는 +
+        for i in 0..<lottoNoLabels.count {
+            switch i {
+            case 6: lottoNoLabels[i].configureLottoLabel(BallType.plus)
+            default: lottoNoLabels[i].configureLottoLabel()
+            }
         }
     }
     
@@ -181,59 +180,63 @@ class LottoViewController: UIViewController, setup {
         AF.request(LottoUrl.lottoUrl).responseDecodable(of: Lotto.self) { response in
             switch response.result {
             case .success(let value):
-                self.configureLottoData(value)
+                self.configureLottoBall(value)
             case .failure(let error):
                 print(error)
             }
         }
     }
     
-    func configureLottoData(_ data: Lotto) {
-        configureLottoBall(data.drwtNo1, label: drwtNo1)
-        configureLottoBall(data.drwtNo2, label: drwtNo2)
-        configureLottoBall(data.drwtNo3, label: drwtNo3)
-        configureLottoBall(data.drwtNo4, label: drwtNo4)
-        configureLottoBall(data.drwtNo5, label: drwtNo5)
-        configureLottoBall(data.drwtNo6, label: drwtNo6)
-        configureLottoBall(data.bnusNo, label: bnusNo)
+    private func configureLottoBall(_ data: Lotto) {
+        // 7번째 글자는 + 로 입력되어있어야하고 lottoNoLabels의 인덱스와 꼬이지 않게 7번째는 nil처리
+        let lottoData: [Int?] = [data.drwtNo1, data.drwtNo2, data.drwtNo3, data.drwtNo4, data.drwtNo5, data.drwtNo6, nil, data.bnusNo]
+        for (i, drwtNo) in lottoData.enumerated() {
+            if let drwtNo = drwtNo {
+                lottoNoLabels[i].backgroundColor = getLottoBallColors(drwtNo)
+                lottoNoLabels[i].text = "\(drwtNo)"
+            }
+        }
         resultNoLabel.text = "\(data.drwNo)회"
         drwNoLabel.text = "\(data.drwNoDate) 추첨"
     }
     
-    func configureLottoBall(_ drwtNo: Int, label: UILabel) {
-        var backgroundColor: UIColor = .clear
+    // 각 로또 번호에 맞춰서 색깔 다르게
+    private func getLottoBallColors(_ drwtNo: Int) -> UIColor {
         switch drwtNo {
-        case 1...10: backgroundColor = .systemYellow
-        case 11...20: backgroundColor = .systemBlue
-        case 21...30: backgroundColor = .systemRed
-        case 31...40: backgroundColor = .lightGray
-        case 41...45: backgroundColor = .systemGreen
-        default: break
+        case 1...10: return .systemYellow
+        case 11...20: return .systemBlue
+        case 21...30: return .systemRed
+        case 31...40: return .lightGray
+        case 41...45: return .systemGreen
+        default: return .systemGreen
         }
-        label.backgroundColor = backgroundColor
-        label.text = "\(drwtNo)"
     }
-
     
+    // 뷰 터치해서 키보드 내리기
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
 }
 
+
 // MARK: PickerViewExtension
 extension LottoViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    // 컴포넌트 개수
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
+    // 컴포넌트 내 행 개수
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return list.count
     }
     
+    // 컴포넌트 내 행의 제목
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return list[row]
     }
     
+    // 행 선택했을 때
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         drwNotextField.text = list[row]
         LottoUrl.drwNo = list[row]
