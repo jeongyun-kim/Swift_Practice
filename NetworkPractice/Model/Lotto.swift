@@ -34,7 +34,7 @@ struct Lotto: Decodable {
         let result = components.day! / 7 + 1
         // 반복문 돌면서 현재까지의 횟수 담아주기
         // - reversed : 큰 수부터 작은 수로 
-        var list = (1...result).reversed().map { "\($0)"}
+        let list = (1...result).reversed().map { "\($0)"}
 
         return list
     }

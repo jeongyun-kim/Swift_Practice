@@ -10,6 +10,13 @@ import Alamofire
 import SnapKit
 
 class WeatherViewController: UIViewController, setup {
+    
+    var list: [(String, WeatherDataType)] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
     let backgroundImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "background")
@@ -19,7 +26,7 @@ class WeatherViewController: UIViewController, setup {
     
     let stackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.axis = Axis.horizontalAxis
+        stackView.axis = .horizontal
         stackView.distribution = .fillProportionally
         stackView.spacing = 12
         return stackView
@@ -34,8 +41,7 @@ class WeatherViewController: UIViewController, setup {
     
     let cityLabel: UILabel = {
         let label = UILabel()
-        label.font = Font.regularTitleFont
-        label.text = "서울"
+        label.configureFont("서울", size: 18)
         return label
     }()
     
@@ -55,8 +61,7 @@ class WeatherViewController: UIViewController, setup {
     
     let dateLabel: UILabel = {
         let label = UILabel()
-        label.font = Font.descFont
-        label.text = WeatherUrl.today
+        label.configureFont(WeatherUrl.nowDateAndTime, size: 14)
         return label
     }()
     
@@ -66,8 +71,9 @@ class WeatherViewController: UIViewController, setup {
         super.viewDidLoad()
         setupHierarchy()
         setupConstraints()
-        tableView.backgroundColor = .clear
-        //network()
+        setupTableView()
+        addTargets()
+        network()
     }
     
     func setupHierarchy() {
@@ -102,19 +108,64 @@ class WeatherViewController: UIViewController, setup {
         }
         
         tableView.snp.makeConstraints {
-            $0.top.equalTo(stackView.snp.bottom)
+            $0.top.equalTo(stackView.snp.bottom).offset(8)
             $0.horizontalEdges.bottom.equalTo(view)
         }
+    }
+    
+    func setupTableView() {
+        tableView.backgroundColor = .clear
+        tableView.separatorStyle = .none
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        tableView.register(WeatherLabelTableViewCell.self, forCellReuseIdentifier: WeatherLabelTableViewCell.identifier)
+        tableView.register(WeatherIconTableViewCell.self, forCellReuseIdentifier: WeatherIconTableViewCell.identifier)
     }
 
     func network() {
         AF.request(WeatherUrl.weatherUrl).responseDecodable(of: WeatherContainer.self) { response in
             switch response.result {
             case .success(let value):
-                print(value)
+                self.list.append((value.weather.first!.desc, .text))
+                self.list.append((value.main.descCelsiusTemp, .text))
+                self.list.append((value.main.descHumidity, .text))
+                WeatherUrl.weatherIconName = value.weather.first!.icon
+                self.list.append((WeatherUrl.weatherIconUrl, .icon))
+                self.list.append(("오늘도 좋은 하루되세요✨", .text))
             case .failure(let error):
                 print(error)
             }
         }
+    }
+    
+    func addTargets() {
+        refreshBtn.addTarget(self, action: #selector(refreshBtnTapped), for: .touchUpInside)
+    }
+    
+    @objc func refreshBtnTapped(_ sender: UIButton) {
+        list.removeAll()
+        network()
+    }
+}
+
+extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return list.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch list[indexPath.row].1 {
+        case .icon:
+            let cell = tableView.dequeueReusableCell(withIdentifier: WeatherIconTableViewCell.identifier, for: indexPath) as! WeatherIconTableViewCell
+            cell.configureCell(list[indexPath.row].0)
+            return cell
+        case .text:
+            let cell = tableView.dequeueReusableCell(withIdentifier: WeatherLabelTableViewCell.identifier, for: indexPath) as! WeatherLabelTableViewCell
+            cell.configureCell(list[indexPath.row].0)
+            return cell
+        }
+        
     }
 }
