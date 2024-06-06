@@ -33,10 +33,9 @@ struct Lotto: Decodable {
         // 일주일에 한 번 있으니까 7로 나눠주고 +1
         let result = components.day! / 7 + 1
         // 반복문 돌면서 현재까지의 횟수 담아주기
-        var list: [String] = []
-        for i in (1...result).reversed() {
-            list.append("\(i)")
-        }
+        // - reversed : 큰 수부터 작은 수로 
+        var list = (1...result).reversed().map { "\($0)"}
+
         return list
     }
 }
