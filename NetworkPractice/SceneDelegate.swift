@@ -20,6 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let movieView = MovieViewController()
         let weatherView = WeatherViewController()
         let tabBarController = UITabBarController()
+        tabBarController.tabBar.backgroundColor = .systemBackground
         tabBarController.setViewControllers([lottoView, movieView, weatherView], animated: true)
         if let items = tabBarController.tabBar.items {
             items[0].selectedImage = UIImage(systemName: "number.circle.fill")
