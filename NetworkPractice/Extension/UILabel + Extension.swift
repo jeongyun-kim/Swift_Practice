@@ -23,7 +23,10 @@ extension UILabel {
             self.textColor = .darkGray
             self.textAlignment = .center
         }
-        
+    }
+    
+    func configureDescFont() {
+        self.font = UIFont.systemFont(ofSize: 14)
     }
 }
 

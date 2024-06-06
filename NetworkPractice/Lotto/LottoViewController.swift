@@ -19,7 +19,7 @@ class LottoViewController: UIViewController, setup {
         let textField = UITextField()
         textField.layer.borderColor = UIColor.lightGray.cgColor
         textField.layer.borderWidth = 0.4
-        textField.layer.cornerRadius = 6
+        textField.layer.cornerRadius = Layer.cornerRadius
         textField.tintColor = .clear
         textField.textAlignment = .center
         return textField
@@ -28,13 +28,13 @@ class LottoViewController: UIViewController, setup {
     let guideLabel: UILabel = {
         let label = UILabel()
         label.text = "당첨번호 안내"
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.font = Font.descFont
         return label
     }()
     
     let drwNoLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.font = Font.descFont
         label.textColor = .lightGray
         return label
     }()
@@ -47,7 +47,7 @@ class LottoViewController: UIViewController, setup {
     
     let resultNoLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        label.font = Font.boldTitleFont
         label.textColor = .systemYellow
         return label
     }()
@@ -55,7 +55,7 @@ class LottoViewController: UIViewController, setup {
     let resultLabel: UILabel = {
         let label = UILabel()
         label.text = "당첨결과"
-        label.font = UIFont.systemFont(ofSize: 18)
+        label.font = Font.regularTitleFont
         return label
     }()
     

@@ -18,14 +18,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         let lottoView = LottoViewController()
         let movieView = MovieViewController()
+        let weatherView = WeatherViewController()
         let tabBarController = UITabBarController()
-        tabBarController.setViewControllers([lottoView, movieView], animated: true)
+        tabBarController.setViewControllers([lottoView, movieView, weatherView], animated: true)
         if let items = tabBarController.tabBar.items {
             items[0].selectedImage = UIImage(systemName: "number.circle.fill")
             items[0].image = UIImage(systemName: "number.circle")
             
             items[1].selectedImage = UIImage(systemName: "fpopcorn.circle.fill")
             items[1].image = UIImage(systemName: "popcorn.circle")
+            
+            items[2].selectedImage = UIImage(systemName: "cloud.rainbow.half.fill")
+            items[2].image = UIImage(systemName: "cloud.rainbow.half")
         }
         // 처음 보여질 화면(=탭바)을 root로 설정하고 보여주기
         window?.rootViewController = tabBarController

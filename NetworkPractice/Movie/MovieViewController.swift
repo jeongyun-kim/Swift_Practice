@@ -19,7 +19,7 @@ class MovieViewController: UIViewController, setup {
     
     let searchTextField: UITextField = {
         let textField = UITextField()
-        let attributedPlaceholder = NSAttributedString(string: "'20210101' 과 같은 형식으로 검색해주세요", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)])
+        let attributedPlaceholder = NSAttributedString(string: "'20210101' 과 같은 형식으로 검색해주세요", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: Font.descFont])
         textField.attributedPlaceholder = attributedPlaceholder
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
         textField.leftViewMode = .always
@@ -38,10 +38,9 @@ class MovieViewController: UIViewController, setup {
     let searchBtn: UIButton = {
         let button = UIButton()
         button.setTitle("검색", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        button.titleLabel?.font = Font.descFont
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .white
-        
         return button
     }()
     
@@ -116,7 +115,7 @@ class MovieViewController: UIViewController, setup {
         searchBtn.addTarget(self, action: #selector(searchBtnTapped), for: .touchUpInside)
     }
     
-    // MARK: addTarget
+    // MARK: Action
     // 입력 시작하면 placeHolder 지우기
     @objc func textFieldDidEditingBegin(_ sender: UITextField) {
         searchTextField.placeholder = ""
@@ -137,7 +136,7 @@ class MovieViewController: UIViewController, setup {
         if !keyword.isEmpty {
             let cnt = keyword.components(separatedBy: " ").joined().count
             if cnt == 8 && checkDate(keyword){
-                print("검색가보자궁")
+                print("검색가보자궁🚀")
                 MovieUrl.movieUrl = keyword
                 network()
             } else {

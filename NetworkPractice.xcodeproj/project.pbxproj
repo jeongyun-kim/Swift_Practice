@@ -26,6 +26,9 @@
 		E0387EBE2C10CCE80093C185 /* Lotto.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0387EBD2C10CCE80093C185 /* Lotto.swift */; };
 		E0387EC02C10D1150093C185 /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0387EBF2C10D1150093C185 /* UILabel + Extension.swift */; };
 		E0387EC22C117BAF0093C185 /* BallType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0387EC12C117BAF0093C185 /* BallType.swift */; };
+		E0387EC52C1180040093C185 /* UIStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0387EC42C1180040093C185 /* UIStruct.swift */; };
+		E0387EC82C118AEB0093C185 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0387EC72C118AEB0093C185 /* WeatherViewController.swift */; };
+		E0387ECA2C118B500093C185 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0387EC92C118B500093C185 /* Weather.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +50,9 @@
 		E0387EBD2C10CCE80093C185 /* Lotto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lotto.swift; sourceTree = "<group>"; };
 		E0387EBF2C10D1150093C185 /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
 		E0387EC12C117BAF0093C185 /* BallType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallType.swift; sourceTree = "<group>"; };
+		E0387EC42C1180040093C185 /* UIStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStruct.swift; sourceTree = "<group>"; };
+		E0387EC72C118AEB0093C185 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		E0387EC92C118B500093C185 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,18 +89,19 @@
 		E0387E892C10B0930093C185 /* NetworkPractice */ = {
 			isa = PBXGroup;
 			children = (
+				E0387EC32C117F290093C185 /* Protocol */,
 				E0387EB82C10BD4F0093C185 /* Extension */,
 				E0387EB22C10B3810093C185 /* Model */,
 				E0387EA52C10B1C30093C185 /* Lotto */,
 				E0387EA02C10B1AB0093C185 /* Movie */,
+				E0387EC62C118AD90093C185 /* Weather */,
 				E0387E8A2C10B0930093C185 /* AppDelegate.swift */,
 				E0387E8C2C10B0930093C185 /* SceneDelegate.swift */,
 				E0387E932C10B0940093C185 /* Assets.xcassets */,
 				E0387E952C10B0940093C185 /* LaunchScreen.storyboard */,
 				E0387E982C10B0940093C185 /* Info.plist */,
 				E0387EA62C10B1E30093C185 /* APIKey.swift */,
-				E0387EA82C10B21E0093C185 /* ReusableIdentifier.swift */,
-				E0387EBB2C10C24C0093C185 /* Setup.swift */,
+				E0387EC42C1180040093C185 /* UIStruct.swift */,
 			);
 			path = NetworkPractice;
 			sourceTree = "<group>";
@@ -122,6 +129,7 @@
 			children = (
 				E0387EB32C10B3880093C185 /* Movie.swift */,
 				E0387EBD2C10CCE80093C185 /* Lotto.swift */,
+				E0387EC92C118B500093C185 /* Weather.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -133,6 +141,23 @@
 				E0387EBF2C10D1150093C185 /* UILabel + Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		E0387EC32C117F290093C185 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				E0387EA82C10B21E0093C185 /* ReusableIdentifier.swift */,
+				E0387EBB2C10C24C0093C185 /* Setup.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		E0387EC62C118AD90093C185 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				E0387EC72C118AEB0093C185 /* WeatherViewController.swift */,
+			);
+			path = Weather;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,11 +242,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0387EBC2C10C24C0093C185 /* Setup.swift in Sources */,
+				E0387EC82C118AEB0093C185 /* WeatherViewController.swift in Sources */,
 				E0387EA92C10B21E0093C185 /* ReusableIdentifier.swift in Sources */,
+				E0387EC52C1180040093C185 /* UIStruct.swift in Sources */,
 				E0387EA42C10B1BA0093C185 /* LottoViewController.swift in Sources */,
 				E0387EB42C10B3880093C185 /* Movie.swift in Sources */,
 				E0387E8B2C10B0930093C185 /* AppDelegate.swift in Sources */,
 				E0387E8D2C10B0930093C185 /* SceneDelegate.swift in Sources */,
+				E0387ECA2C118B500093C185 /* Weather.swift in Sources */,
 				E0387EC02C10D1150093C185 /* UILabel + Extension.swift in Sources */,
 				E0387EBA2C10BD5F0093C185 /* UIViewController + Extension.swift in Sources */,
 				E0387EBE2C10CCE80093C185 /* Lotto.swift in Sources */,
@@ -372,6 +400,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L348QC8MG7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NetworkPractice/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -403,6 +432,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L348QC8MG7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NetworkPractice/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
