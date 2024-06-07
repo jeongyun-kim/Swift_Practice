@@ -1,0 +1,498 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E02657E42C0AF7D500D887BA /* identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02657E32C0AF7D500D887BA /* identifier.swift */; };
+		E02657E62C0AF7DB00D887BA /* setupUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02657E52C0AF7DB00D887BA /* setupUI.swift */; };
+		E02657EA2C0AF8B900D887BA /* ChatListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02657E82C0AF8B900D887BA /* ChatListTableViewCell.swift */; };
+		E02657EB2C0AF8B900D887BA /* ChatListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E02657E92C0AF8B900D887BA /* ChatListTableViewCell.xib */; };
+		E0C756872C0AF6140099B0E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C756862C0AF6140099B0E5 /* AppDelegate.swift */; };
+		E0C756892C0AF6140099B0E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C756882C0AF6140099B0E5 /* SceneDelegate.swift */; };
+		E0C7568B2C0AF6140099B0E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C7568A2C0AF6140099B0E5 /* ViewController.swift */; };
+		E0C7568E2C0AF6140099B0E5 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = E0C7568D2C0AF6140099B0E5 /* Base */; };
+		E0C756902C0AF6150099B0E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0C7568F2C0AF6150099B0E5 /* Assets.xcassets */; };
+		E0C756932C0AF6150099B0E5 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = E0C756922C0AF6150099B0E5 /* Base */; };
+		E0C7569B2C0AF6530099B0E5 /* ChatList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0C7569A2C0AF6530099B0E5 /* ChatList.storyboard */; };
+		E0C7569D2C0AF65E0099B0E5 /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C7569C2C0AF65E0099B0E5 /* ChatListViewController.swift */; };
+		E0C756A02C0AF6B60099B0E5 /* ChattingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C7569F2C0AF6B60099B0E5 /* ChattingData.swift */; };
+		E0E49F042C0B7B0000DA4BCB /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0E49F032C0B7B0000DA4BCB /* UserTableViewCell.xib */; };
+		E0E49F052C0B7B0000DA4BCB /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E49F022C0B7B0000DA4BCB /* UserTableViewCell.swift */; };
+		E0E49F072C0C2B8300DA4BCB /* ChatRoom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0E49F062C0C2B8300DA4BCB /* ChatRoom.storyboard */; };
+		E0E49F092C0C2B9000DA4BCB /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E49F082C0C2B9000DA4BCB /* ChatRoomViewController.swift */; };
+		E0E49F0D2C0C985000DA4BCB /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E49F0C2C0C985000DA4BCB /* UILabel + Extension.swift */; };
+		E0E49F102C0C9B8A00DA4BCB /* FriendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0E49F0F2C0C9B8A00DA4BCB /* FriendTableViewCell.xib */; };
+		E0E49F112C0C9B8A00DA4BCB /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E49F0E2C0C9B8A00DA4BCB /* FriendTableViewCell.swift */; };
+		E0E49F142C0C9CE100DA4BCB /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E49F132C0C9CE100DA4BCB /* UIView + Extension.swift */; };
+		E0E49F162C0CA65200DA4BCB /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E49F152C0CA65200DA4BCB /* UIImageView + Extension.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E02657E32C0AF7D500D887BA /* identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = identifier.swift; sourceTree = "<group>"; };
+		E02657E52C0AF7DB00D887BA /* setupUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setupUI.swift; sourceTree = "<group>"; };
+		E02657E82C0AF8B900D887BA /* ChatListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewCell.swift; sourceTree = "<group>"; };
+		E02657E92C0AF8B900D887BA /* ChatListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatListTableViewCell.xib; sourceTree = "<group>"; };
+		E0C756832C0AF6140099B0E5 /* TravelTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0C756862C0AF6140099B0E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E0C756882C0AF6140099B0E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E0C7568A2C0AF6140099B0E5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E0C7568D2C0AF6140099B0E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E0C7568F2C0AF6150099B0E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E0C756922C0AF6150099B0E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E0C756942C0AF6150099B0E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0C7569A2C0AF6530099B0E5 /* ChatList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatList.storyboard; sourceTree = "<group>"; };
+		E0C7569C2C0AF65E0099B0E5 /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
+		E0C7569F2C0AF6B60099B0E5 /* ChattingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChattingData.swift; sourceTree = "<group>"; };
+		E0E49F022C0B7B0000DA4BCB /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		E0E49F032C0B7B0000DA4BCB /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
+		E0E49F062C0C2B8300DA4BCB /* ChatRoom.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatRoom.storyboard; sourceTree = "<group>"; };
+		E0E49F082C0C2B9000DA4BCB /* ChatRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomViewController.swift; sourceTree = "<group>"; };
+		E0E49F0C2C0C985000DA4BCB /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
+		E0E49F0E2C0C9B8A00DA4BCB /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
+		E0E49F0F2C0C9B8A00DA4BCB /* FriendTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendTableViewCell.xib; sourceTree = "<group>"; };
+		E0E49F132C0C9CE100DA4BCB /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
+		E0E49F152C0CA65200DA4BCB /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E0C756802C0AF6140099B0E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E02657E02C0AF7C100D887BA /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				E02657E32C0AF7D500D887BA /* identifier.swift */,
+				E02657E52C0AF7DB00D887BA /* setupUI.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		E02657E72C0AF8A700D887BA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E02657E82C0AF8B900D887BA /* ChatListTableViewCell.swift */,
+				E02657E92C0AF8B900D887BA /* ChatListTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		E0C7567A2C0AF6140099B0E5 = {
+			isa = PBXGroup;
+			children = (
+				E0C756852C0AF6140099B0E5 /* TravelTalk */,
+				E0C756842C0AF6140099B0E5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E0C756842C0AF6140099B0E5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E0C756832C0AF6140099B0E5 /* TravelTalk.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E0C756852C0AF6140099B0E5 /* TravelTalk */ = {
+			isa = PBXGroup;
+			children = (
+				E0E49F122C0C9CCF00DA4BCB /* Extension */,
+				E02657E02C0AF7C100D887BA /* Protocol */,
+				E0C7569E2C0AF6B00099B0E5 /* Model */,
+				E0C756A12C0AF71A0099B0E5 /* ChatList */,
+				E0C756A22C0AF7200099B0E5 /* ChatRoom */,
+				E0C756862C0AF6140099B0E5 /* AppDelegate.swift */,
+				E0C756882C0AF6140099B0E5 /* SceneDelegate.swift */,
+				E0C7568A2C0AF6140099B0E5 /* ViewController.swift */,
+				E0C7568C2C0AF6140099B0E5 /* Main.storyboard */,
+				E0C7568F2C0AF6150099B0E5 /* Assets.xcassets */,
+				E0C756912C0AF6150099B0E5 /* LaunchScreen.storyboard */,
+				E0C756942C0AF6150099B0E5 /* Info.plist */,
+			);
+			path = TravelTalk;
+			sourceTree = "<group>";
+		};
+		E0C7569E2C0AF6B00099B0E5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E0C7569F2C0AF6B60099B0E5 /* ChattingData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E0C756A12C0AF71A0099B0E5 /* ChatList */ = {
+			isa = PBXGroup;
+			children = (
+				E02657E72C0AF8A700D887BA /* Cell */,
+				E0C7569A2C0AF6530099B0E5 /* ChatList.storyboard */,
+				E0C7569C2C0AF65E0099B0E5 /* ChatListViewController.swift */,
+			);
+			path = ChatList;
+			sourceTree = "<group>";
+		};
+		E0C756A22C0AF7200099B0E5 /* ChatRoom */ = {
+			isa = PBXGroup;
+			children = (
+				E0E49F012C0B7AF700DA4BCB /* Cell */,
+				E0E49F062C0C2B8300DA4BCB /* ChatRoom.storyboard */,
+				E0E49F082C0C2B9000DA4BCB /* ChatRoomViewController.swift */,
+			);
+			path = ChatRoom;
+			sourceTree = "<group>";
+		};
+		E0E49F012C0B7AF700DA4BCB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E0E49F022C0B7B0000DA4BCB /* UserTableViewCell.swift */,
+				E0E49F032C0B7B0000DA4BCB /* UserTableViewCell.xib */,
+				E0E49F0E2C0C9B8A00DA4BCB /* FriendTableViewCell.swift */,
+				E0E49F0F2C0C9B8A00DA4BCB /* FriendTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		E0E49F122C0C9CCF00DA4BCB /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E0E49F0C2C0C985000DA4BCB /* UILabel + Extension.swift */,
+				E0E49F132C0C9CE100DA4BCB /* UIView + Extension.swift */,
+				E0E49F152C0CA65200DA4BCB /* UIImageView + Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E0C756822C0AF6140099B0E5 /* TravelTalk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E0C756972C0AF6150099B0E5 /* Build configuration list for PBXNativeTarget "TravelTalk" */;
+			buildPhases = (
+				E0C7567F2C0AF6140099B0E5 /* Sources */,
+				E0C756802C0AF6140099B0E5 /* Frameworks */,
+				E0C756812C0AF6140099B0E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TravelTalk;
+			productName = TravelTalk;
+			productReference = E0C756832C0AF6140099B0E5 /* TravelTalk.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E0C7567B2C0AF6140099B0E5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					E0C756822C0AF6140099B0E5 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+				};
+			};
+			buildConfigurationList = E0C7567E2C0AF6140099B0E5 /* Build configuration list for PBXProject "TravelTalk" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E0C7567A2C0AF6140099B0E5;
+			productRefGroup = E0C756842C0AF6140099B0E5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E0C756822C0AF6140099B0E5 /* TravelTalk */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E0C756812C0AF6140099B0E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E02657EB2C0AF8B900D887BA /* ChatListTableViewCell.xib in Resources */,
+				E0C756902C0AF6150099B0E5 /* Assets.xcassets in Resources */,
+				E0C756932C0AF6150099B0E5 /* Base in Resources */,
+				E0E49F102C0C9B8A00DA4BCB /* FriendTableViewCell.xib in Resources */,
+				E0E49F072C0C2B8300DA4BCB /* ChatRoom.storyboard in Resources */,
+				E0C7569B2C0AF6530099B0E5 /* ChatList.storyboard in Resources */,
+				E0E49F042C0B7B0000DA4BCB /* UserTableViewCell.xib in Resources */,
+				E0C7568E2C0AF6140099B0E5 /* Base in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E0C7567F2C0AF6140099B0E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0C7568B2C0AF6140099B0E5 /* ViewController.swift in Sources */,
+				E0E49F052C0B7B0000DA4BCB /* UserTableViewCell.swift in Sources */,
+				E0E49F162C0CA65200DA4BCB /* UIImageView + Extension.swift in Sources */,
+				E0C756872C0AF6140099B0E5 /* AppDelegate.swift in Sources */,
+				E02657E42C0AF7D500D887BA /* identifier.swift in Sources */,
+				E0C7569D2C0AF65E0099B0E5 /* ChatListViewController.swift in Sources */,
+				E0C756A02C0AF6B60099B0E5 /* ChattingData.swift in Sources */,
+				E0E49F0D2C0C985000DA4BCB /* UILabel + Extension.swift in Sources */,
+				E0E49F112C0C9B8A00DA4BCB /* FriendTableViewCell.swift in Sources */,
+				E02657EA2C0AF8B900D887BA /* ChatListTableViewCell.swift in Sources */,
+				E0E49F142C0C9CE100DA4BCB /* UIView + Extension.swift in Sources */,
+				E0E49F092C0C2B9000DA4BCB /* ChatRoomViewController.swift in Sources */,
+				E0C756892C0AF6140099B0E5 /* SceneDelegate.swift in Sources */,
+				E02657E62C0AF7DB00D887BA /* setupUI.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E0C7568C2C0AF6140099B0E5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E0C7568D2C0AF6140099B0E5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E0C756912C0AF6150099B0E5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E0C756922C0AF6150099B0E5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E0C756952C0AF6150099B0E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E0C756962C0AF6150099B0E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E0C756982C0AF6150099B0E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L348QC8MG7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TravelTalk/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jeongyun.TravelTalk;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		E0C756992C0AF6150099B0E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L348QC8MG7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TravelTalk/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jeongyun.TravelTalk;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E0C7567E2C0AF6140099B0E5 /* Build configuration list for PBXProject "TravelTalk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E0C756952C0AF6150099B0E5 /* Debug */,
+				E0C756962C0AF6150099B0E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E0C756972C0AF6150099B0E5 /* Build configuration list for PBXNativeTarget "TravelTalk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E0C756982C0AF6150099B0E5 /* Debug */,
+				E0C756992C0AF6150099B0E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E0C7567B2C0AF6140099B0E5 /* Project object */;
+}

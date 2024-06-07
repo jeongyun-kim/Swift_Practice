@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Chat Room View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="ChatRoomViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="ChatRoomViewController" customModule="TravelTalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ydm-Sq-Ibl">
+                                <rect key="frame" x="0.0" y="59" width="393" height="709"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="egn-lX-L4u">
+                                <rect key="frame" x="16" y="768" width="361" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yKJ-VT-eaU">
+                                        <rect key="frame" x="315" y="4" width="42" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="yKJ-VT-eaU" secondAttribute="height" multiplier="1:1" id="jbq-mI-cYi"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="paperplane.fill" catalog="system"/>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O5c-Vr-2VL">
+                                        <rect key="frame" x="4" y="0.0" width="311" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="TbV-Cf-iVl"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="O5c-Vr-2VL" firstAttribute="top" secondItem="egn-lX-L4u" secondAttribute="top" id="2VX-Td-Zlr"/>
+                                    <constraint firstItem="O5c-Vr-2VL" firstAttribute="leading" secondItem="egn-lX-L4u" secondAttribute="leading" constant="4" id="8zt-9A-xyw"/>
+                                    <constraint firstAttribute="bottom" secondItem="yKJ-VT-eaU" secondAttribute="bottom" constant="4" id="NqK-m5-HZ7"/>
+                                    <constraint firstItem="yKJ-VT-eaU" firstAttribute="leading" secondItem="O5c-Vr-2VL" secondAttribute="trailing" id="eDa-0u-u9q"/>
+                                    <constraint firstAttribute="bottom" secondItem="O5c-Vr-2VL" secondAttribute="bottom" id="mAt-XJ-URC"/>
+                                    <constraint firstAttribute="trailing" secondItem="yKJ-VT-eaU" secondAttribute="trailing" constant="4" id="nQh-Bi-qAj"/>
+                                    <constraint firstItem="yKJ-VT-eaU" firstAttribute="top" secondItem="egn-lX-L4u" secondAttribute="top" constant="4" id="t1p-XE-YfM"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ydm-Sq-Ibl" secondAttribute="trailing" id="2aW-1e-aRz"/>
+                            <constraint firstItem="egn-lX-L4u" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="AzM-59-5ab"/>
+                            <constraint firstItem="ydm-Sq-Ibl" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="mdl-cS-Uz2"/>
+                            <constraint firstItem="ydm-Sq-Ibl" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="phb-PU-XcV"/>
+                            <constraint firstItem="egn-lX-L4u" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="rdF-vZ-HdX"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="egn-lX-L4u" secondAttribute="trailing" constant="16" id="sNs-wI-SzP"/>
+                            <constraint firstItem="egn-lX-L4u" firstAttribute="top" secondItem="ydm-Sq-Ibl" secondAttribute="bottom" id="zcN-5B-DdO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="sendBtn" destination="yKJ-VT-eaU" id="ewL-WJ-w6R"/>
+                        <outlet property="tableView" destination="ydm-Sq-Ibl" id="O4l-sq-DJX"/>
+                        <outlet property="textField" destination="O5c-Vr-2VL" id="YqK-PU-LVV"/>
+                        <outlet property="textView" destination="egn-lX-L4u" id="H8H-xd-SMc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="130.53435114503816" y="-34.507042253521128"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="paperplane.fill" catalog="system" width="128" height="119"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
