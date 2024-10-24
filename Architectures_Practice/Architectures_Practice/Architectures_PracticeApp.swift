@@ -11,7 +11,7 @@ import SwiftUI
 struct Architectures_PracticeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MVPViewControllerWrapper()
         }
     }
 }

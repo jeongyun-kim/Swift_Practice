@@ -14,6 +14,7 @@
 		E003D18A2CCA915E006E186F /* Architectures_PracticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E003D1882CCA915E006E186F /* Architectures_PracticeTests.swift */; };
 		E003D18E2CCA9161006E186F /* Architectures_PracticeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E003D18B2CCA9161006E186F /* Architectures_PracticeUITests.swift */; };
 		E003D18F2CCA9161006E186F /* Architectures_PracticeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E003D18C2CCA9161006E186F /* Architectures_PracticeUITestsLaunchTests.swift */; };
+		E003D1942CCA979E006E186F /* MVPViewControllerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E003D1932CCA979E006E186F /* MVPViewControllerWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		E003D1882CCA915E006E186F /* Architectures_PracticeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Architectures_PracticeTests.swift; sourceTree = "<group>"; };
 		E003D18B2CCA9161006E186F /* Architectures_PracticeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Architectures_PracticeUITests.swift; sourceTree = "<group>"; };
 		E003D18C2CCA9161006E186F /* Architectures_PracticeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Architectures_PracticeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E003D1932CCA979E006E186F /* MVPViewControllerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVPViewControllerWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 		E003D1832CCA915C006E186F /* Architectures_Practice */ = {
 			isa = PBXGroup;
 			children = (
+				E003D1902CCA91CB006E186F /* MVP */,
 				E003D17F2CCA915C006E186F /* Preview Content */,
 				E003D1802CCA915C006E186F /* Architectures_PracticeApp.swift */,
 				E003D1812CCA915C006E186F /* Assets.xcassets */,
@@ -125,6 +128,14 @@
 				E003D18C2CCA9161006E186F /* Architectures_PracticeUITestsLaunchTests.swift */,
 			);
 			path = Architectures_PracticeUITests;
+			sourceTree = "<group>";
+		};
+		E003D1902CCA91CB006E186F /* MVP */ = {
+			isa = PBXGroup;
+			children = (
+				E003D1932CCA979E006E186F /* MVPViewControllerWrapper.swift */,
+			);
+			path = MVP;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E003D1942CCA979E006E186F /* MVPViewControllerWrapper.swift in Sources */,
 				E003D1862CCA915C006E186F /* Architectures_PracticeApp.swift in Sources */,
 				E003D1872CCA915C006E186F /* ContentView.swift in Sources */,
 			);
