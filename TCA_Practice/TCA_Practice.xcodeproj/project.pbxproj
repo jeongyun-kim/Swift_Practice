@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E003D1472CCA8BE6006E186F /* MVIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E003D1462CCA8BE6006E186F /* MVIView.swift */; };
 		E0493D1B2CC918C2008C5277 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0493D182CC918C2008C5277 /* ContentView.swift */; };
 		E0493D1C2CC918C2008C5277 /* TCA_PracticeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0493D192CC918C2008C5277 /* TCA_PracticeApp.swift */; };
 		E0493D1D2CC918C2008C5277 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0493D152CC918C2008C5277 /* Preview Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E003D1462CCA8BE6006E186F /* MVIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVIView.swift; sourceTree = "<group>"; };
 		E0493CE82CC918BB008C5277 /* TCA_Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCA_Practice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0493CF82CC918BC008C5277 /* TCA_PracticeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCA_PracticeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0493D022CC918BC008C5277 /* TCA_PracticeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCA_PracticeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +110,7 @@
 				E0493D172CC918C2008C5277 /* Assets.xcassets */,
 				E0493D182CC918C2008C5277 /* ContentView.swift */,
 				E0493D192CC918C2008C5277 /* TCA_PracticeApp.swift */,
+				E003D1462CCA8BE6006E186F /* MVIView.swift */,
 			);
 			path = TCA_Practice;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0493D1B2CC918C2008C5277 /* ContentView.swift in Sources */,
+				E003D1472CCA8BE6006E186F /* MVIView.swift in Sources */,
 				E0493D1C2CC918C2008C5277 /* TCA_PracticeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
