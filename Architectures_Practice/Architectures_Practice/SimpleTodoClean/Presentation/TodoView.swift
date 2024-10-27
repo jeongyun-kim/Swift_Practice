@@ -22,7 +22,15 @@ struct TodoView: View {
                         Text(todo.title) // 할 일 제목 표시
                         Spacer()
                         Image(systemName: todo.isCompleted ? "checkmark.circle.fill" : "circle") // 완료 상태 아이콘
+                            .onTapGesture {
+                                vm.completeTodo(todo)
+                            }
                     }
+                    .swipeActions(edge: .trailing, content: {
+                        Button("삭제", role: .destructive) {
+                            vm.removeTodo(todo)
+                        }
+                    })
                 }
             }
             .navigationTitle("Todo List") // 네비게이션 타이틀 설정

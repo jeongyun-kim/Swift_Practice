@@ -17,8 +17,8 @@ struct TodoModel {
     let title: String
     let isCompleted: Bool
     
-    init(title: String, isCompleted: Bool) {
-        self.id = UUID()
+    init(id: UUID, title: String, isCompleted: Bool) {
+        self.id = id
         self.title = title
         self.isCompleted = isCompleted
     }

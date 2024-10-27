@@ -184,18 +184,10 @@
 		E003D1B52CCE42C3006E186F /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				E003D1B82CCE42FB006E186F /* UseCase */,
+				E003D1B92CCE4306006E186F /* TodoUseCase.swift */,
 				E003D1B62CCE42E8006E186F /* TodoModel.swift */,
 			);
 			path = Domain;
-			sourceTree = "<group>";
-		};
-		E003D1B82CCE42FB006E186F /* UseCase */ = {
-			isa = PBXGroup;
-			children = (
-				E003D1B92CCE4306006E186F /* TodoUseCase.swift */,
-			);
-			path = UseCase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

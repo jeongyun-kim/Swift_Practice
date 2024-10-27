@@ -11,6 +11,8 @@ import Foundation
 protocol TodoUseCase {
     func fetchTodos() -> [TodoModel]
     func addTodo(title: String)
+    func remove(todo: TodoModel)
+    func complete(todo: TodoModel)
 }
 
 final class TodoUseCaseImpl: TodoUseCase {
@@ -24,14 +26,21 @@ final class TodoUseCaseImpl: TodoUseCase {
     
     // 할 일 목록 가져오기
     func fetchTodos() -> [TodoModel] {
-        //return todos
         return dataSource.getTodos()
     }
     
     // 할 일 추가
     func addTodo(title: String) {
-        let todo = TodoModel(title: title, isCompleted: false)
+        let todo = TodoModel(id: UUID(), title: title, isCompleted: false)
         dataSource.save(todo: todo)
-       // todos.append(todo)
+    }
+    
+    // 할 일 삭제 
+    func remove(todo: TodoModel) {
+        dataSource.remove(todo: todo)
+    }
+    
+    func complete(todo: TodoModel) {
+        dataSource.update(todo: todo)
     }
 }

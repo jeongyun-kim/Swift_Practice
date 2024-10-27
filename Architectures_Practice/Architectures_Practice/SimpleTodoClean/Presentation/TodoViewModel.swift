@@ -24,4 +24,14 @@ final class TodoViewModel: ObservableObject {
         useCase.addTodo(title: title)
         fetchTodos()
     }
+    
+    func removeTodo(_ todo: TodoModel) {
+        useCase.remove(todo: todo)
+        fetchTodos()
+    }
+    
+    func completeTodo(_ todo: TodoModel) {
+        useCase.complete(todo: todo)
+        fetchTodos()
+    }
 }
