@@ -15,6 +15,13 @@
 		E003D18E2CCA9161006E186F /* Architectures_PracticeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E003D18B2CCA9161006E186F /* Architectures_PracticeUITests.swift */; };
 		E003D18F2CCA9161006E186F /* Architectures_PracticeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E003D18C2CCA9161006E186F /* Architectures_PracticeUITestsLaunchTests.swift */; };
 		E003D1942CCA979E006E186F /* MVPViewControllerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E003D1932CCA979E006E186F /* MVPViewControllerWrapper.swift */; };
+		E003D1B72CCE42E8006E186F /* TodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E003D1B62CCE42E8006E186F /* TodoModel.swift */; };
+		E003D1BA2CCE4306006E186F /* TodoUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E003D1B92CCE4306006E186F /* TodoUseCase.swift */; };
+		E003D1BC2CCE441D006E186F /* TodoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E003D1BB2CCE441D006E186F /* TodoEntity.swift */; };
+		E003D1BE2CCE451A006E186F /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E003D1BD2CCE451A006E186F /* DataSource.swift */; };
+		E003D1C02CCE46C2006E186F /* TodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E003D1BF2CCE46C2006E186F /* TodoViewModel.swift */; };
+		E003D1C22CCE4880006E186F /* TodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E003D1C12CCE4880006E186F /* TodoView.swift */; };
+		E003D1CA2CCE4BB3006E186F /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E003D1C92CCE4BB3006E186F /* RealmSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +53,12 @@
 		E003D18B2CCA9161006E186F /* Architectures_PracticeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Architectures_PracticeUITests.swift; sourceTree = "<group>"; };
 		E003D18C2CCA9161006E186F /* Architectures_PracticeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Architectures_PracticeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E003D1932CCA979E006E186F /* MVPViewControllerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVPViewControllerWrapper.swift; sourceTree = "<group>"; };
+		E003D1B62CCE42E8006E186F /* TodoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoModel.swift; sourceTree = "<group>"; };
+		E003D1B92CCE4306006E186F /* TodoUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoUseCase.swift; sourceTree = "<group>"; };
+		E003D1BB2CCE441D006E186F /* TodoEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoEntity.swift; sourceTree = "<group>"; };
+		E003D1BD2CCE451A006E186F /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		E003D1BF2CCE46C2006E186F /* TodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewModel.swift; sourceTree = "<group>"; };
+		E003D1C12CCE4880006E186F /* TodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E003D1CA2CCE4BB3006E186F /* RealmSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +118,7 @@
 		E003D1832CCA915C006E186F /* Architectures_Practice */ = {
 			isa = PBXGroup;
 			children = (
+				E003D1AA2CCE404A006E186F /* SimpleTodoClean */,
 				E003D1902CCA91CB006E186F /* MVP */,
 				E003D17F2CCA915C006E186F /* Preview Content */,
 				E003D1802CCA915C006E186F /* Architectures_PracticeApp.swift */,
@@ -138,6 +153,51 @@
 			path = MVP;
 			sourceTree = "<group>";
 		};
+		E003D1AA2CCE404A006E186F /* SimpleTodoClean */ = {
+			isa = PBXGroup;
+			children = (
+				E003D1B42CCE42B8006E186F /* Presentation */,
+				E003D1B52CCE42C3006E186F /* Domain */,
+				E003D1B32CCE42A6006E186F /* Data */,
+			);
+			path = SimpleTodoClean;
+			sourceTree = "<group>";
+		};
+		E003D1B32CCE42A6006E186F /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				E003D1BB2CCE441D006E186F /* TodoEntity.swift */,
+				E003D1BD2CCE451A006E186F /* DataSource.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		E003D1B42CCE42B8006E186F /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				E003D1BF2CCE46C2006E186F /* TodoViewModel.swift */,
+				E003D1C12CCE4880006E186F /* TodoView.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		E003D1B52CCE42C3006E186F /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				E003D1B82CCE42FB006E186F /* UseCase */,
+				E003D1B62CCE42E8006E186F /* TodoModel.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		E003D1B82CCE42FB006E186F /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				E003D1B92CCE4306006E186F /* TodoUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -155,6 +215,7 @@
 			);
 			name = Architectures_Practice;
 			packageProductDependencies = (
+				E003D1C92CCE4BB3006E186F /* RealmSwift */,
 			);
 			productName = Architectures_Practice;
 			productReference = E003D1512CCA9154006E186F /* Architectures_Practice.app */;
@@ -232,6 +293,9 @@
 			);
 			mainGroup = E003D1482CCA9154006E186F;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				E003D1C82CCE4BB3006E186F /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = E003D1522CCA9154006E186F /* Products */;
 			projectDirPath = "";
@@ -275,8 +339,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E003D1C02CCE46C2006E186F /* TodoViewModel.swift in Sources */,
+				E003D1BE2CCE451A006E186F /* DataSource.swift in Sources */,
+				E003D1BC2CCE441D006E186F /* TodoEntity.swift in Sources */,
 				E003D1942CCA979E006E186F /* MVPViewControllerWrapper.swift in Sources */,
+				E003D1B72CCE42E8006E186F /* TodoModel.swift in Sources */,
 				E003D1862CCA915C006E186F /* Architectures_PracticeApp.swift in Sources */,
+				E003D1C22CCE4880006E186F /* TodoView.swift in Sources */,
+				E003D1BA2CCE4306006E186F /* TodoUseCase.swift in Sources */,
 				E003D1872CCA915C006E186F /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -603,6 +673,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E003D1C82CCE4BB3006E186F /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 10.54.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E003D1C92CCE4BB3006E186F /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E003D1C82CCE4BB3006E186F /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E003D1492CCA9154006E186F /* Project object */;
 }

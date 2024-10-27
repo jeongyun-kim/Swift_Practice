@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import CoreData
 
 @main
 struct Architectures_PracticeApp: App {
     var body: some Scene {
         WindowGroup {
-            MVPViewControllerWrapper()
+            let dataSource = TodoRealmDataSource()
+            let useCase = TodoUseCaseImpl(dataSource: dataSource)
+            let vm = TodoViewModel(useCase: useCase)
+            TodoView(vm: vm)
+            //MVPViewControllerWrapper()
         }
     }
 }
