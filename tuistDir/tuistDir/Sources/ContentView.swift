@@ -8,7 +8,15 @@ public struct ContentView: View {
         Text("Hello, World!")
             .padding()
             .task {
-                NetworkService.shared.printF()
+                let query = EmailQuery(email: "kkanyo04@naver.com")
+                NetworkService.shared.postValidationEmail(email: EmailQuery(email: "kkanyo04@naver.com")) { result in
+                    switch result {
+                    case .success(let value):
+                        print(value)
+                    case .failure(let error):
+                        print(error)
+                    }
+                }
             }
         
     }

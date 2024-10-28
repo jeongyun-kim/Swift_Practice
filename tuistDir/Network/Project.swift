@@ -23,7 +23,7 @@ let project = Project(
             product: .framework,
             bundleId: "com.jeongyun.network",
             deploymentTargets: .iOS("16.0"), // 지원 최소 버전 설정,
-            infoPlist: .extendingDefault(with: [:]),
+            infoPlist: .extendingDefault(with: ["NSAppTransportSecurity":["NSAllowsArbitraryLoads":true]]),
             sources: ["Sources/**"],
             dependencies: [
                 .package(product: "Alamofire"),
@@ -31,7 +31,7 @@ let project = Project(
             ]
         )
     ],
-    fileHeaderTemplate: nil
+    fileHeaderTemplate: "Copyright © 2024 jeongyun. All rights reserved."
 )
 
 

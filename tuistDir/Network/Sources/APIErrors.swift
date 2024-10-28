@@ -1,8 +1,7 @@
 // Copyright © 2024 jeongyun. All rights reserved.
 
 import Foundation
-import Moya
 
-enum AuthAPI {
-    
+public enum APIErrors: String, Error {
+    case E12
 }

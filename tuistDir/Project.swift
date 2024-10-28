@@ -17,7 +17,8 @@ let project = Project(
                         "UIColorName": "",
                         "UIImageName": "",
                     ],
-                    // 세로모드 고정 
+                    "NSAppTransportSecurity":["NSAllowsArbitraryLoads":true],
+                    // 세로모드 고정
                     "UISupportedInterfaceOrientations": ["UIInterfaceOrientationPortrait"]
                     //"MinimumOSVersion": "16.0" // Minimum Deployment 버전 설정
                 ]
