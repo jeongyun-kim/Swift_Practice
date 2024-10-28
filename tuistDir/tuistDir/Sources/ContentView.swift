@@ -1,4 +1,5 @@
 import SwiftUI
+import NetworkKit
 
 public struct ContentView: View {
     public init() {}
@@ -6,6 +7,10 @@ public struct ContentView: View {
     public var body: some View {
         Text("Hello, World!")
             .padding()
+            .task {
+                NetworkService.shared.printF()
+            }
+        
     }
 }
 
