@@ -26,7 +26,7 @@ let project = Project(
             sources: ["tuistDir/Sources/**"],
             resources: ["tuistDir/Resources/**"],
             dependencies: [
-                .project(target: "NetworkKit", path: "/Users/ddaezi/Desktop/iOS/Swift_Practice/tuistDir/Network")
+                .project(target: "Feature", path: "Feature")
             ]
         ),
         .target(

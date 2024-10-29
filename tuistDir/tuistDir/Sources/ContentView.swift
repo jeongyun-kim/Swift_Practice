@@ -1,23 +1,22 @@
 import SwiftUI
-import NetworkKit
+import Feature
 
 public struct ContentView: View {
     public init() {}
 
     public var body: some View {
-        Text("Hello, World!")
-            .padding()
-            .task {
-                let query = EmailQuery(email: "kkanyo04@naver.com")
-                NetworkService.shared.postValidationEmail(email: EmailQuery(email: "kkanyo04@naver.com")) { result in
-                    switch result {
-                    case .success(let value):
-                        print(value)
-                    case .failure(let error):
-                        print(error)
-                    }
-                }
-            }
+        FeatureView()
+//            .task {
+//                let query = EmailQuery(email: "kkanyo04@naver.com")
+//                NetworkService.shared.postValidationEmail(email: EmailQuery(email: "kkanyo04@naver.com")) { result in
+//                    switch result {
+//                    case .success(let value):
+//                        print(value)
+//                    case .failure(let error):
+//                        print(error)
+//                    }
+//                }
+//            }
         
     }
 }

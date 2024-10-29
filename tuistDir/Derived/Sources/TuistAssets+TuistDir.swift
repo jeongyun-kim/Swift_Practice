@@ -22,8 +22,20 @@
 public enum TuistDirAsset: Sendable {
   public enum Assets {
   public static let accentColor = TuistDirColors(name: "AccentColor")
-    public static let pointColor2 = TuistDirColors(name: "PointColor2")
+    public static let appleLogin = TuistDirImages(name: "AppleLogin")
+    public static let bgPrimary = TuistDirColors(name: "BgPrimary")
+    public static let bgSecondary = TuistDirColors(name: "BgSecondary")
+    public static let black = TuistDirColors(name: "Black")
+    public static let error = TuistDirColors(name: "Error")
+    public static let gray = TuistDirColors(name: "Gray")
+    public static let inActive = TuistDirColors(name: "InActive")
     public static let primaryColor = TuistDirColors(name: "PrimaryColor")
+    public static let white = TuistDirColors(name: "White")
+    public static let textPrimary = TuistDirColors(name: "TextPrimary")
+    public static let textSecondary = TuistDirColors(name: "TextSecondary")
+    public static let seperator = TuistDirColors(name: "Seperator")
+    public static let viewAlpha = TuistDirColors(name: "ViewAlpha")
+    public static let onboarding = TuistDirImages(name: "onboarding")
   }
   public enum PreviewAssets {
   }
@@ -81,6 +93,58 @@ public extension SwiftUI.Color {
   init(asset: TuistDirColors) {
     let bundle = Bundle.module
     self.init(asset.name, bundle: bundle)
+  }
+}
+#endif
+
+public struct TuistDirImages: Sendable {
+  public let name: String
+
+  #if os(macOS)
+  public typealias Image = NSImage
+  #elseif os(iOS) || os(tvOS) || os(watchOS) || os(visionOS)
+  public typealias Image = UIImage
+  #endif
+
+  public var image: Image {
+    let bundle = Bundle.module
+    #if os(iOS) || os(tvOS) || os(visionOS)
+    let image = Image(named: name, in: bundle, compatibleWith: nil)
+    #elseif os(macOS)
+    let image = bundle.image(forResource: NSImage.Name(name))
+    #elseif os(watchOS)
+    let image = Image(named: name)
+    #endif
+    guard let result = image else {
+      fatalError("Unable to load image asset named \(name).")
+    }
+    return result
+  }
+
+  #if canImport(SwiftUI)
+  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, visionOS 1.0, *)
+  public var swiftUIImage: SwiftUI.Image {
+    SwiftUI.Image(asset: self)
+  }
+  #endif
+}
+
+#if canImport(SwiftUI)
+@available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, visionOS 1.0, *)
+public extension SwiftUI.Image {
+  init(asset: TuistDirImages) {
+    let bundle = Bundle.module
+    self.init(asset.name, bundle: bundle)
+  }
+
+  init(asset: TuistDirImages, label: Text) {
+    let bundle = Bundle.module
+    self.init(asset.name, bundle: bundle, label: label)
+  }
+
+  init(decorative asset: TuistDirImages) {
+    let bundle = Bundle.module
+    self.init(decorative: asset.name, bundle: bundle)
   }
 }
 #endif
