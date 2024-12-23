@@ -20,14 +20,14 @@ import ComposableArchitecture
 // - 성공 시 Effect, 실패 시 Side Effect
 // Store: 기능 수행, 모든 상호작용이 Store에 전송되고 Reducer를 통한 상태 변경 후 UI 업데이트
 struct ContentView: View {
-    let store: StoreOf<CounterFeature>
+    @Bindable var store: StoreOf<CounterFeature>
     
     var body: some View {
         VStack {
             Text("count : \(store.count)")
             
             Button("add") {
-                store.send(.addCount)
+                store.send(.addFeatureAction(.addCount))
             }
             
             Button("sub") {
@@ -43,6 +43,9 @@ struct ContentView: View {
             }
         }
         .padding()
+        .onChange(of: store.isUser) { oldValue, newValue in
+            print(oldValue, newValue)
+        }
     }
 }
 
@@ -57,52 +60,70 @@ struct CounterFeature {
     struct State: Equatable {
         var count = 0
         var isCounting = false
+        var isUser = false
+        var addFeature: AddFeature.State = .init()
     }
     
     // Action: 상태 변화를 일으키는 모든 동작
     // - 더하기, 빼기 등
-    enum Action {
-        case addCount // 더하기
+    enum Action: BindableAction {
+        case binding(BindingAction<State>)
         case subCount // 빼기
         case someBtnTapped
         case someAction(result: String) // 비동기로 통신 결과 받아오기
         case mergeCount
+        case addFeatureAction(AddFeature.Action)
     }
     
     // Reducer: State를 주어진 Action을 바탕으로 처리
     // - View에서 Action을 취하면 Action은 Reducer를 통해 State를 변경
     var body: some Reducer<State, Action> {
+        Scope(state: \.addFeature, action: \.addFeatureAction) {
+            AddFeature()
+        }
+        
+        BindingReducer()
+        
         Reduce { state, action in
             switch action {
-            case .addCount:
+            case .addFeatureAction(.addCount):
                 print("add")
                 state.count += 1
+                //state.isUser = UserDefaults.standard.bool(forKey: "isUser")
+                UserDefaults.standard.set(false, forKey: "isUser")
                 //state.isCounting.toggle()
+                state.isUser = UserDefaults.standard.bool(forKey: "isUser")
                 return .none // Effect는ㄴ 반환해야 하는데 아무 동작도 취하지 않을 때 == 비동기 처리가 없을 때
-            
+                
             case .subCount:
                 print("sub")
+                UserDefaults.standard.set(true, forKey: "isUser")
+                state.isUser = UserDefaults.standard.bool(forKey: "isUser")
                 state.count -= 1
+                //state.isUser = true
+                //state.isUser = UserDefaults.standard.bool(forKey: "isUser")
                 
-                if state.isCounting {
-                    return .run { send in
-                        while true {
-                            try await Task.sleep(for: .seconds(1))
-                            await send(.addCount)
-                        }
-                    }
-                    // Effect 취소
-                    // - id: Effect를 식별하는 값
-                    .cancellable(id: "counting")
-                } else {
-                    // 필요한 타이밍에 cancel 시, 이미 진행중인 Effect 즉시 취소 후 취소된 결과 전달
-                    return .cancel(id: "counting")
-                }
+                return .none
                 
-            // someBtnTapped -> 비동기 작업(.run)
-            // - Effect 내에서 비동기 작업 후 결과를 앱의 상태변화로 연결
-            // - Combine의 Subscriber가 Publisher를 구독하는 것과 유사, RxSwift의 Subscription과 유사
-            // - 인자로 비동기 클로저 받아 실행 -> 내부에서 send 통해 Action 재전달 가능
+                //                if state.isCounting {
+                //                    return .run { send in
+                //                        while true {
+                //                            try await Task.sleep(for: .seconds(1))
+                //                            await send(.addCount)
+                //                        }
+                //                    }
+                //                    // Effect 취소
+                //                    // - id: Effect를 식별하는 값
+                //                    .cancellable(id: "counting")
+                //                } else {
+                //                    // 필요한 타이밍에 cancel 시, 이미 진행중인 Effect 즉시 취소 후 취소된 결과 전달
+                //                    return .cancel(id: "counting")
+                //                }
+                
+                // someBtnTapped -> 비동기 작업(.run)
+                // - Effect 내에서 비동기 작업 후 결과를 앱의 상태변화로 연결
+                // - Combine의 Subscriber가 Publisher를 구독하는 것과 유사, RxSwift의 Subscription과 유사
+                // - 인자로 비동기 클로저 받아 실행 -> 내부에서 send 통해 Action 재전달 가능
             case .someBtnTapped:
                 return .run { [count = state.count] send in
                     let (data, _) = try await URLSession.shared.data(from: URL(string: "https://www.naver.com/\(count)")!)
@@ -112,22 +133,45 @@ struct CounterFeature {
                     // - 주로 자식 컴포넌트 -> 부모 컴포넌트로 데이터 전달
                 }
                 
-            // 비동기로 받아온 결과 받고나서의 처리
+                // 비동기로 받아온 결과 받고나서의 처리
             case .someAction(let result):
                 state.count = 0
                 print(result)
                 return .none
                 
-            // merge: 여러 Effect를 동시에 실행시킬 수 있음
-            // -> concatenate: merge와 같지만 순서 부여
+                // merge: 여러 Effect를 동시에 실행시킬 수 있음
+                // -> concatenate: merge와 같지만 순서 부여
             case .mergeCount:
                 // addCount, subCount가 Effect(= Action의 결과 = 비동기 작업)라고 가정
                 return .merge(
-                    .send(.addCount),
+                    .send(.addFeatureAction(.addCount)),
                     .send(.subCount)
                 )
+            default:
+                return .none
             }
         }
     }
+}
+
+@Reducer
+struct AddFeature {
+    @ObservableState
+    struct State: Equatable {
+        
+    }
     
+    enum Action: BindableAction {
+        case binding(BindingAction<State>)
+        case addCount // 더하기
+    }
+    
+    var body: some Reducer<State, Action> {
+        Reduce { state, action in
+            switch action {
+            default:
+                return .none
+            }
+        }
+    }
 }

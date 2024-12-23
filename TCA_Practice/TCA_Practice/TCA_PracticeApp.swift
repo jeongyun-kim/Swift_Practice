@@ -12,10 +12,10 @@ import ComposableArchitecture
 struct TCA_PracticeApp: App {
     var body: some Scene {
         WindowGroup {
-//            ContentView(store: Store(initialState: CounterFeature.State(), reducer: {
-//                CounterFeature()
-//            }))
-            MVIView()
+            ContentView(store: Store(initialState: CounterFeature.State(), reducer: {
+                CounterFeature()
+            }))
+            //MVIView()
         }
     }
 }
