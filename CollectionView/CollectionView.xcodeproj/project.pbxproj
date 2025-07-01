@@ -14,6 +14,8 @@
 		E04923572E13B5C800CDDF5F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E049234F2E13B5C800CDDF5F /* MainViewController.swift */; };
 		E049235A2E13B63300CDDF5F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E04923592E13B63300CDDF5F /* SnapKit */; };
 		E049235C2E13B69400CDDF5F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E049235B2E13B69400CDDF5F /* .gitignore */; };
+		E049235E2E13B6F500CDDF5F /* UICollectionViewLayout + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E049235D2E13B6F500CDDF5F /* UICollectionViewLayout + Extension.swift */; };
+		E04923602E13B94B00CDDF5F /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E049235F2E13B94B00CDDF5F /* Cell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		E049234E2E13B5C800CDDF5F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E049234F2E13B5C800CDDF5F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E049235B2E13B69400CDDF5F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		E049235D2E13B6F500CDDF5F /* UICollectionViewLayout + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewLayout + Extension.swift"; sourceTree = "<group>"; };
+		E049235F2E13B94B00CDDF5F /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +69,8 @@
 				E049234B2E13B5C800CDDF5F /* LaunchScreen.storyboard */,
 				E049234E2E13B5C800CDDF5F /* SceneDelegate.swift */,
 				E049234F2E13B5C800CDDF5F /* MainViewController.swift */,
+				E049235F2E13B94B00CDDF5F /* Cell.swift */,
+				E049235D2E13B6F500CDDF5F /* UICollectionViewLayout + Extension.swift */,
 			);
 			path = CollectionView;
 			sourceTree = "<group>";
@@ -149,6 +155,8 @@
 			files = (
 				E04923552E13B5C800CDDF5F /* AppDelegate.swift in Sources */,
 				E04923562E13B5C800CDDF5F /* SceneDelegate.swift in Sources */,
+				E04923602E13B94B00CDDF5F /* Cell.swift in Sources */,
+				E049235E2E13B6F500CDDF5F /* UICollectionViewLayout + Extension.swift in Sources */,
 				E04923572E13B5C800CDDF5F /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
