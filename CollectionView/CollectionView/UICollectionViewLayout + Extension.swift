@@ -24,4 +24,13 @@ extension UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout(section: section)
         return layout
     }
+    
+    // UICollectionViewListConfiguration
+    static func cookieLayout() -> UICollectionViewLayout {
+        var config = UICollectionLayoutListConfiguration(appearance: .plain)
+        config.showsSeparators = false
+        config.backgroundColor = .systemGray6
+        let layout = UICollectionViewCompositionalLayout.list(using: config)
+        return layout
+    }
 }

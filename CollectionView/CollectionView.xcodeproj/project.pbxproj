@@ -16,6 +16,7 @@
 		E049235C2E13B69400CDDF5F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E049235B2E13B69400CDDF5F /* .gitignore */; };
 		E049235E2E13B6F500CDDF5F /* UICollectionViewLayout + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E049235D2E13B6F500CDDF5F /* UICollectionViewLayout + Extension.swift */; };
 		E04923602E13B94B00CDDF5F /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E049235F2E13B94B00CDDF5F /* Cell.swift */; };
+		E04923622E13BD1A00CDDF5F /* DiffableCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04923612E13BD1A00CDDF5F /* DiffableCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		E049235B2E13B69400CDDF5F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		E049235D2E13B6F500CDDF5F /* UICollectionViewLayout + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewLayout + Extension.swift"; sourceTree = "<group>"; };
 		E049235F2E13B94B00CDDF5F /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		E04923612E13BD1A00CDDF5F /* DiffableCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				E049234B2E13B5C800CDDF5F /* LaunchScreen.storyboard */,
 				E049234E2E13B5C800CDDF5F /* SceneDelegate.swift */,
 				E049234F2E13B5C800CDDF5F /* MainViewController.swift */,
+				E04923612E13BD1A00CDDF5F /* DiffableCollectionViewController.swift */,
 				E049235F2E13B94B00CDDF5F /* Cell.swift */,
 				E049235D2E13B6F500CDDF5F /* UICollectionViewLayout + Extension.swift */,
 			);
@@ -156,6 +159,7 @@
 				E04923552E13B5C800CDDF5F /* AppDelegate.swift in Sources */,
 				E04923562E13B5C800CDDF5F /* SceneDelegate.swift in Sources */,
 				E04923602E13B94B00CDDF5F /* Cell.swift in Sources */,
+				E04923622E13BD1A00CDDF5F /* DiffableCollectionViewController.swift in Sources */,
 				E049235E2E13B6F500CDDF5F /* UICollectionViewLayout + Extension.swift in Sources */,
 				E04923572E13B5C800CDDF5F /* MainViewController.swift in Sources */,
 			);
