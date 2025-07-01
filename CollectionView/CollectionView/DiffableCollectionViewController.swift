@@ -7,6 +7,8 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 struct Cookie: Hashable {
     let id: UUID = UUID()
@@ -15,6 +17,18 @@ struct Cookie: Hashable {
 }
 
 final class DiffableCollectionViewController: UIViewController {
+    init(vm: ViewModel = ViewModel()) {
+        super.init(nibName: nil, bundle: nil)
+        self.vm = vm
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private var vm: ViewModel!
+    let disposeBag = DisposeBag()
+    
     private lazy var collectionView: UICollectionView = {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: .cookieLayout())
         return cv
@@ -26,11 +40,6 @@ final class DiffableCollectionViewController: UIViewController {
         button.tintColor = .white
         return button
     }()
-    
-    var list = [
-        Cookie(name: "락스타", price: 1),
-        Cookie(name: "초코하임", price: 2)
-    ]
     
     enum Section: Hashable, CaseIterable {
         case main
@@ -62,10 +71,11 @@ final class DiffableCollectionViewController: UIViewController {
             make.horizontalEdges.bottom.equalToSuperview()
         }
         
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+//        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         
         configureCollectionView()
         updateSnapshot()
+        bind()
     }
     
     private func configureCollectionView() {
@@ -85,15 +95,28 @@ final class DiffableCollectionViewController: UIViewController {
     
     private func updateSnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
-        snapshot.appendSections(/*[.main]*/Section.allCases)
-        snapshot.appendItems(list, toSection: .main)
+        snapshot.appendSections([.main])
+        snapshot.appendItems(vm.list, toSection: .main)
         dataSource.apply(snapshot, animatingDifferences: true)
     }
     
-    @objc private func buttonTapped(_ sender: UIButton) {
-        let newCookie = Cookie(name: "집가고싶어", price: 0)
-        list.append(newCookie)
-        updateSnapshot()
+//    @objc private func buttonTapped(_ sender: UIButton) {
+//        let newCookie = Cookie(name: "집가고싶어", price: 0)
+//        list.append(newCookie)
+//        updateSnapshot()
+//    }
+    
+    private func bind() {
+        let addBtnTapped = button.rx.tap
+        let input = ViewModel.Input(addBtnTapped: addBtnTapped)
+        let output = vm.transform(input)
+        
+        output.alert
+            .asSignal()
+            .emit(with: self) { owner, _ in
+                owner.updateSnapshot()
+            }
+            .disposed(by: disposeBag)
     }
 }
 
